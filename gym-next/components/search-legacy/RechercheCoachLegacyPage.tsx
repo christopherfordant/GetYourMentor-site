@@ -15,21 +15,21 @@ export function RechercheCoachLegacyPage({ sport, city, demo = false }: { sport?
 
   return <DiscoveryFrame page="search">
     <main className="de-main" data-sport-page data-sport-theme={sportSlug}>
-      <section className="de-search-hero">
+      <section className="de-search-hero" aria-label="Trouver un coach">
         <div>
           <DiscoveryIntro step="01 / TON SPORT, TON TERRAIN" title={title}>Un objectif, une discipline, un lieu. Fais le premier pas vers le coach qui te correspond.</DiscoveryIntro>
           <DiscoverySteps active={0} />
-          {demo ? <p><a href={`/seances?${new URLSearchParams({ sport: sportSlug, city: cityValue.trim() })}`}>Explorer les séances collectives</a></p> : null}
+          {demo ? <p><a className="de-search-collective" href={`/seances?${new URLSearchParams({ sport: sportSlug, city: cityValue.trim() })}`}>Explorer les séances collectives</a></p> : null}
         </div>
-        <form className="de-search-form" data-sport-search-form onSubmit={event => {
+        <form className="de-search-form" aria-labelledby="de-search-title" aria-describedby="de-search-help" data-sport-search-form onSubmit={event => {
           event.preventDefault();
           window.location.href = buildNextPath(cityValue.trim() ? nextRoutes.directory : nextRoutes.search, { sport: sportSlug, city: cityValue.trim() });
         }}>
-          <p className="de-eyebrow">TA PROCHAINE SÉANCE COMMENCE ICI</p>
+          <div><p className="de-eyebrow">TA PROCHAINE SÉANCE</p><h2 id="de-search-title">À toi de choisir le terrain.</h2></div>
           <label>Quelle discipline ?<select aria-label="Quelle discipline ?" data-sport-query value={sportSlug} onChange={event => setSportSlug(event.target.value)}>{discoverySports.map(([slug, name]) => <option key={slug} value={slug}>{name}</option>)}</select></label>
           <label>Où veux-tu t’entraîner ?<input data-sport-city value={cityValue} placeholder="Ville" autoComplete="address-level2" onChange={event => setCityValue(event.target.value)} /></label>
           <button className="de-button" type="submit">Explorer les coachs <span aria-hidden="true">↗</span></button>
-          <p className="de-note">Compare les profils avant de proposer un créneau. La séance reste soumise à l’acceptation du coach.</p>
+          <p className="de-note" id="de-search-help">Compare les profils avant de proposer un créneau. La séance reste soumise à l’acceptation du coach.</p>
         </form>
       </section>
       <section className="de-city-section" aria-labelledby="de-cities-title">
