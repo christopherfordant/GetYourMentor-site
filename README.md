@@ -17,5 +17,5 @@ Dépôt privé par défaut. Aucun workflow CI/CD, secret GitHub ou lien de dépl
 
 L'ancien dépôt et son historique ne sont pas nettoyés par cet export. Les documents déjà publics y restent accessibles.
 
-## V�rifications de cet export
-Typage et build r�ussis. 36 tests cibl�s Chromium valid�s localement : contrats, capacit�, reprise de r�servation, confidentialit�, connexion/inscription et pages principales. Aucun paiement r�el ni service distant valid�.
+## Vérifications de cet export
+Typage et build réussis. 36 tests ciblés Chromium validés localement : contrats, capacité, reprise de réservation, confidentialité, connexion/inscription et pages principales. Aucun paiement réel ni service distant validé.
