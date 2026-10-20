@@ -1,0 +1,1770 @@
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(130, 170, 255, 0.16), transparent 32%),
+    linear-gradient(180deg, #f8f7f3 0%, #eef2f7 100%);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  width: min(1320px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0;
+  transition:
+    padding 180ms ease,
+    transform 180ms ease;
+}
+
+.field { border: 1px solid #3a4b68; border-radius: 16px; background: #202d42; }
+.fieldLabel { color: var(--app-lime); }
+.fieldInput { background: transparent; border: 0; }
+.field:focus-within { border-color: var(--app-lime); box-shadow: 0 0 0 3px rgba(215, 243, 107, 0.14); }
+
+.topbarScrolled {
+  padding: 12px 0;
+}
+
+.brandName,
+.topbarLink,
+.accountButton,
+.sportLink {
+  border: 1px solid rgba(26, 36, 54, 0.08);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.brandName {
+  display: inline-flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 0 22px;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.sportsNav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sportLink {
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.topbarActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.topbarLink {
+  min-height: 52px;
+  padding: 0 14px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.accountButton {
+  min-height: 54px;
+  padding: 0 20px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+.accountIcon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+}
+
+.main {
+  width: min(1320px, calc(100% - 32px));
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.hero {
+  position: relative;
+  min-height: 720px;
+  border-radius: 40px;
+  overflow: hidden;
+  margin-top: 8px;
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage,
+.cardImage {
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(18, 24, 38, 0.78) 0%, rgba(18, 24, 38, 0.5) 40%, rgba(18, 24, 38, 0.16) 100%),
+    linear-gradient(180deg, rgba(5, 9, 18, 0.28) 0%, rgba(5, 9, 18, 0.48) 100%);
+}
+
+.motionAssetRail {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.motionAssetRail img { position: absolute; width: clamp(48px, 6vw, 92px); height: auto; filter: drop-shadow(0 16px 22px rgba(0,0,0,.32)); }
+.motionAssetRail img:nth-child(1) { top: 34%; right: 18%; }
+.motionAssetRail img:nth-child(2) { top: 26%; right: 24%; }
+
+.sportRailCard { isolation: isolate; }
+
+@media (max-width: 700px) {
+  .motionAssetRail img:nth-child(1) { top: 38%; right: 16%; }
+  .motionAssetRail img:nth-child(2) { top: 30%; right: 20%; }
+  .motionAssetRail img { width: 44px; }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  width: min(620px, 100%);
+  padding: 86px 56px;
+  display: grid;
+  gap: 24px;
+}
+
+.eyebrow,
+.sectionKicker {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.heroTitle {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(52px, 8vw, 88px);
+  line-height: 0.94;
+  letter-spacing: -0.07em;
+}
+
+.heroCopy {
+  margin: 0;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.searchCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.14);
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.fieldInput {
+  width: 100%;
+  min-height: 58px;
+  padding: 0 18px;
+  border: 1px solid rgba(31, 42, 58, 0.12);
+  border-radius: 18px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+}
+
+.searchButton,
+.darkButton,
+.softButton,
+.darkButtonLink,
+.insightButton {
+  cursor: pointer;
+  border: none;
+  font: inherit;
+}
+
+.searchButton {
+  min-width: 176px;
+  border-radius: 18px;
+  padding: 0 28px;
+  background: linear-gradient(135deg, #1f2937 0%, #0f172a 100%);
+  color: #fff;
+  font-weight: 800;
+}
+
+.searchPreviewLayer {
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.previewVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.searchPreviewShell {
+  width: min(420px, 100%);
+  padding: 18px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.previewBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.previewFrame {
+  position: relative;
+  margin-top: 14px;
+  aspect-ratio: 1.28 / 1;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.previewCopy {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+}
+
+.section,
+.faqSection,
+.metricsSection,
+.recruitSection {
+  margin-top: 28px;
+}
+
+.sectionHeading {
+  margin-bottom: 18px;
+}
+
+.sectionHeading h2,
+.faqSection h2,
+.recruitCopy h2 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+}
+
+.howGrid,
+.insightsGrid,
+.localesGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.howGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stepCard,
+.insightCard,
+.localeColumn,
+.faqItem,
+.metric,
+.recruitCopy {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(31, 42, 58, 0.1);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.stepCard {
+  border-radius: 30px;
+  padding: 24px;
+}
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.stepHead h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.05em;
+}
+
+.stepNumber {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.miniScreen {
+  display: grid;
+  gap: 16px;
+  min-height: 100%;
+}
+
+.slideMedia,
+.slotVisual {
+  position: relative;
+  aspect-ratio: 1.1 / 1;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.slideContent {
+  display: grid;
+  gap: 10px;
+}
+
+.slideContent h4 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.05em;
+}
+
+.slideMeta,
+.slideDetail,
+.paymentRow,
+.previewCopy,
+.localeColumn p,
+.faqItem p,
+.recruitCopy p {
+  color: var(--ink-soft);
+}
+
+.slideMeta,
+.slideDetail,
+.slideCaption,
+.slotSelection,
+.paymentRow,
+.paymentStrong,
+.previewCopy,
+.localeColumn p,
+.faqItem p,
+.recruitCopy p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(31, 42, 58, 0.08);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.darkButton,
+.darkButtonLink,
+.softButton,
+.insightButton {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-weight: 800;
+}
+
+.darkButton,
+.darkButtonLink {
+  background: linear-gradient(135deg, #1f2937 0%, #0f172a 100%);
+  color: #fff;
+}
+
+.softButton,
+.insightButton {
+  background: rgba(31, 42, 58, 0.08);
+  color: var(--ink);
+}
+
+.stepActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.arrowButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 42, 58, 0.1);
+  background: #fff;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot,
+.dotActive {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(31, 42, 58, 0.16);
+}
+
+.dotActive {
+  width: 28px;
+  background: #0f172a;
+}
+
+.slotRow {
+  display: flex;
+  gap: 10px;
+}
+
+.slotButton,
+.slotSelected {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 42, 58, 0.08);
+  background: #fff;
+  font-weight: 700;
+}
+
+.slotSelected {
+  background: #0f172a;
+  color: #fff;
+}
+
+.paymentVisual {
+  min-height: 156px;
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(23, 37, 84, 0.92), rgba(31, 41, 55, 0.86)),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 36%);
+}
+
+.paymentStrong {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.paymentTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(31, 42, 58, 0.06);
+}
+
+.paymentTotal strong {
+  font-size: 24px;
+  letter-spacing: -0.05em;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.metric {
+  border-radius: 28px;
+  padding: 24px 28px;
+  display: grid;
+  gap: 8px;
+}
+
+.metric strong {
+  font-size: clamp(34px, 5vw, 54px);
+  letter-spacing: -0.07em;
+}
+
+.metric span {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.insightsGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.insightCard {
+  border-radius: 28px;
+  padding: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.insightCard strong {
+  font-size: clamp(32px, 4vw, 56px);
+  letter-spacing: -0.07em;
+}
+
+.insightCard p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.insightCardFeatured {
+  background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+}
+
+.insightCardFeatured strong,
+.insightCardFeatured p {
+  color: #fff;
+}
+
+.recruitSection {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: 18px;
+}
+
+.recruitMedia {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 34px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.recruitCopy {
+  border-radius: 34px;
+  padding: 36px;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+}
+
+.localesGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.localeColumn {
+  border-radius: 28px;
+  padding: 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.localeColumn h3 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.05em;
+}
+
+.localeLinks {
+  display: grid;
+  gap: 10px;
+}
+
+.localeLinks a {
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.faqSection {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(31, 42, 58, 0.08);
+  border-radius: 34px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+  padding: 32px;
+}
+
+.faqList {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.faqItem {
+  border-radius: 24px;
+  padding: 20px 22px;
+}
+
+.faqItem summary {
+  cursor: pointer;
+  font-weight: 800;
+  list-style: none;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem p {
+  margin-top: 12px;
+}
+
+.siteFooter {
+  width: min(1320px, calc(100% - 32px));
+  margin: 0 auto 28px;
+  padding: 32px;
+  border-radius: 34px;
+  background: #1f2937;
+  color: rgba(255, 255, 255, 0.86);
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.footerBrand {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+@media (max-width: 1180px) {
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .sportsNav,
+  .topbarActions {
+    justify-content: flex-start;
+  }
+
+  .heroContent {
+    padding: 72px 32px;
+  }
+
+  .howGrid,
+  .insightsGrid,
+  .localesGrid,
+  .metricsGrid,
+  .recruitSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .main,
+  .siteFooter,
+  .topbar {
+    width: min(100%, calc(100% - 20px));
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .heroContent {
+    width: 100%;
+    padding: 28px 20px 24px;
+  }
+
+  .heroTitle {
+    font-size: 46px;
+  }
+
+  .heroCopy {
+    font-size: 18px;
+  }
+
+  .searchCard {
+    grid-template-columns: 1fr;
+  }
+
+  .searchButton,
+  .topbarLink,
+  .accountButton,
+  .brandName {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stepCard,
+  .faqSection,
+  .recruitCopy,
+  .metric,
+  .insightCard,
+  .localeColumn {
+    padding: 20px;
+  }
+
+  .siteFooter {
+    padding: 24px 18px;
+  }
+}
+.page {
+  --app-bg: #0b1020;
+  --app-panel: #111a2d;
+  --app-panel-soft: #182640;
+  --app-lime: #d7f36b;
+  --app-orange: #ff8a52;
+  --app-muted: #9da9c2;
+  background: var(--app-bg);
+  color: #f6f8fb;
+}
+
+.topbar { width: min(1180px, calc(100% - 40px)); padding: 20px 0; }
+.brandName, .topbarLink, .accountButton, .sportLink { border: 0; background: transparent; box-shadow: none; color: #f6f8fb; }
+.brandName { min-height: auto; padding: 0; font-size: 20px; }
+.brandName::before { content: "●"; margin-right: 8px; color: var(--app-lime); font-size: 14px; }
+.sportLink { min-height: auto; padding: 8px 11px; color: var(--app-muted); font-size: 13px; }
+.sportLink:hover { color: var(--app-lime); }
+.topbarLink { min-height: auto; padding: 8px 12px; color: var(--app-muted); font-size: 12px; }
+.accountButton { min-height: 42px; padding: 0 16px; border-radius: 14px; background: var(--app-lime); color: #111827; font-size: 13px; font-weight: 800; }
+.main { width: min(1180px, calc(100% - 40px)); }
+.hero { min-height: 620px; margin-top: 12px; border-radius: 34px; background: #141c30; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28); }
+.heroOverlay { background: linear-gradient(90deg, rgba(11, 16, 32, 0.94) 0%, rgba(11, 16, 32, 0.68) 45%, rgba(11, 16, 32, 0.12) 100%); }
+.heroContent { width: min(690px, 100%); padding: 92px 64px; gap: 18px; }
+.eyebrow, .sectionKicker { color: var(--app-lime); font-size: 11px; letter-spacing: 0.16em; }
+.heroTitle { max-width: 610px; font-size: clamp(48px, 7vw, 82px); letter-spacing: -0.075em; }
+.heroCopy { max-width: 460px; color: #c4cce0; font-size: 18px; }
+.searchCard { position: relative; isolation: isolate; max-width: 620px; padding: 10px; border: 0; border-radius: 22px; background: rgba(13, 21, 38, 0.88); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); }
+.searchCard::before { content: ""; position: absolute; z-index: 0; inset: 0; padding: 1px; border-radius: inherit; background: conic-gradient(from var(--search-angle, 0deg), transparent 0 25%, rgba(215, 243, 107, 0.05) 34%, rgba(215, 243, 107, 0.78) 45%, rgba(255, 255, 255, 0.22) 53%, transparent 66% 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: search-orbit 7s linear infinite; }
+.searchCard::after { content: ""; position: absolute; z-index: 0; inset: -18%; pointer-events: none; opacity: 0; background: radial-gradient(circle at 18% 42%, rgba(215, 243, 107, .9) 0 1px, transparent 2px), radial-gradient(circle at 34% 78%, rgba(255, 255, 255, .8) 0 1.5px, transparent 2.5px), radial-gradient(circle at 62% 18%, rgba(215, 243, 107, .72) 0 1px, transparent 2px), radial-gradient(circle at 84% 66%, rgba(255, 255, 255, .8) 0 1px, transparent 2px); transform: scale(.82); transition: opacity 260ms ease; }
+.searchCard > * { position: relative; z-index: 1; }
+.searchCard:hover::after, .searchCard:focus-within::after { opacity: .7; animation: search-particles 2.8s ease-in-out infinite; }
+
+/* The search card's orbit is the visual language for every content section.
+   The footer intentionally stays outside this treatment. */
+.orbitSection {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(13, 21, 38, 0.9), rgba(13, 21, 38, 0.9)) padding-box,
+    conic-gradient(
+      from var(--search-angle, 0deg),
+      rgba(215, 243, 107, 0.08),
+      rgba(215, 243, 107, 0.78) 22%,
+      rgba(255, 255, 255, 0.18) 31%,
+      rgba(215, 243, 107, 0.08) 46%,
+      rgba(215, 243, 107, 0.04) 72%,
+      rgba(215, 243, 107, 0.08)
+    ) border-box;
+  animation: search-orbit 10s linear infinite;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.18);
+}
+
+.orbitSection::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: .74;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(215, 243, 107, .92) 0 1px, transparent 2px),
+    radial-gradient(circle at 38% 82%, rgba(255, 255, 255, .72) 0 1px, transparent 2px),
+    radial-gradient(circle at 67% 12%, rgba(215, 243, 107, .78) 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 70%, rgba(255, 255, 255, .68) 0 1px, transparent 2px);
+  animation: section-particles 5s ease-in-out infinite;
+}
+
+.orbitSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.orbitSection:hover {
+  box-shadow:
+    0 20px 46px rgba(0, 0, 0, 0.18),
+    0 0 28px rgba(215, 243, 107, 0.08);
+}
+
+@keyframes section-particles {
+  0%, 100% { opacity: .3; transform: translate3d(0, 0, 0); }
+  50% { opacity: .85; transform: translate3d(8px, -4px, 0); }
+}
+.field { padding: 6px; }
+.fieldLabel { color: var(--app-muted); font-size: 10px; }
+.fieldInput { min-height: 45px; border: 0; border-radius: 12px; background: rgba(24, 38, 64, 0.72); color: #fff; transition: background 180ms ease, box-shadow 180ms ease; }
+.fieldInput:focus { background: rgba(29, 48, 80, 0.92); box-shadow: 0 0 0 1px rgba(215, 243, 107, .7), 0 0 22px rgba(215, 243, 107, .12); outline: none; }
+.fieldInput::placeholder { color: #7f8ba5; }
+.searchButton, .darkButton, .darkButtonLink { border-radius: 14px; background: var(--app-lime); color: #111827; font-weight: 800; }
+
+@keyframes search-orbit {
+  from { --search-angle: 0deg; }
+  to { --search-angle: 360deg; }
+}
+
+@keyframes search-particles {
+  0%, 100% { transform: scale(.82) translate3d(0, 0, 0); }
+  50% { transform: scale(1.08) translate3d(1%, -2%, 0); }
+}
+
+/* Orbital contour disabled globally by design decision. */
+.searchCard::before,
+.searchCard::after,
+.orbitSection::before {
+  display: none !important;
+  animation: none !important;
+}
+
+.orbitSection {
+  animation: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.section { padding-top: 92px; }
+.sectionHeading h2 { color: #fff; font-size: clamp(30px, 4vw, 48px); }
+.stepCard, .insightCard, .localeColumn, .faqItem { border: 1px solid rgba(255, 255, 255, 0.08); background: var(--app-panel); box-shadow: none; }
+.stepCard { border-radius: 24px; }
+.stepHead h3, .stepNumber { color: #fff; }
+.stepNumber { background: var(--app-orange); }
+.miniScreen { background: var(--app-panel-soft); border-color: rgba(255,255,255,0.07); }
+.metricsSection { margin-top: 92px; border-color: rgba(255,255,255,0.08); }
+.metric strong, .metric span, .insightCard strong, .insightCard p, .localeColumn h3, .localeColumn p, .faqSection h2 { color: #fff; }
+.metric span, .insightCard p, .localeColumn p { color: var(--app-muted); }
+.recruitSection { background: var(--app-panel); border-color: rgba(255,255,255,0.08); }
+.recruitCopy h2, .recruitCopy p { color: #fff; }
+.recruitCopy p { color: var(--app-muted); }
+.siteFooter {
+  margin-bottom: 28px;
+  padding: 44px 24px 34px;
+  border: 1px solid #2d4161;
+  border-radius: 26px;
+  background: #111a2d;
+  color: #f6f8fb;
+}
+.footerBrand, .siteFooter small { color: #fff; }
+.footerLinks a { color: #b9c7dd; }
+.mobileNav { display: none; }
+
+@media (max-width: 900px) {
+  .page { padding-bottom: 82px; }
+  .topbar { width: calc(100% - 32px); padding: 17px 0; }
+  .sportsNav, .topbarLink { display: none; }
+  .topbarActions { margin-left: auto; }
+  .accountButton { min-height: 38px; padding: 0 13px; }
+  .main { width: calc(100% - 24px); }
+  .hero { min-height: 650px; margin-top: 2px; border-radius: 28px; }
+  .heroContent { padding: 62px 22px 26px; }
+  .heroTitle { max-width: 360px; font-size: clamp(46px, 14vw, 68px); }
+  .heroCopy { font-size: 16px; }
+  .searchCard { grid-template-columns: 1fr; padding: 12px; gap: 4px; }
+  .searchButton { min-height: 52px; }
+  .section { padding-top: 58px; }
+  .sectionHeading h2 { font-size: 32px; }
+  .metricsSection { margin-top: 58px; }
+  .recruitSection { grid-template-columns: 1fr; }
+  .recruitMedia { min-height: 230px; }
+  .mobileNav { position: fixed; z-index: 80; right: 12px; bottom: 12px; left: 12px; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 22px; background: rgba(21, 29, 50, 0.94); box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3); backdrop-filter: blur(18px); }
+  .mobileNavItem, .mobileNavItemActive { display: grid; justify-items: center; gap: 3px; padding: 8px 4px; border-radius: 15px; color: var(--app-muted); font-size: 10px; font-weight: 700; }
+  .mobileNavItem span:first-child, .mobileNavItemActive span:first-child { font-size: 20px; line-height: 1; }
+  .mobileNavItemActive { background: var(--app-lime); color: #111827; }
+}
+
+@media (max-width: 900px) {
+  .sportsNav {
+    display: flex;
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .sportsNav::-webkit-scrollbar { display: none; }
+  .sportLink { flex: 0 0 auto; white-space: nowrap; }
+}
+
+/* Correction des cartes : hauteur stable, contenus séparés et aucune zone blanche parasite. */
+.howGrid { align-items: stretch; }
+.stepCard { display: flex; flex-direction: column; min-height: 680px; overflow: hidden; }
+.stepHead { flex: 0 0 auto; min-height: 70px; }
+.miniScreen { width: 100%; box-sizing: border-box; flex: 1 1 auto; min-height: 0; grid-template-rows: auto auto 1fr auto; overflow: hidden; background: transparent; border: 0; box-shadow: none; }
+.slideMedia { aspect-ratio: 1.55 / 1; min-height: 190px; }
+.slotVisual { aspect-ratio: 1.55 / 1; min-height: 190px; }
+.slideContent { min-height: 0; align-content: start; }
+.slideDetail { max-height: 52px; overflow: hidden; }
+.slotRow { align-self: start; }
+.slotSelection { margin: 0; color: var(--app-muted); }
+.paymentVisual { min-height: 142px; }
+.paymentStrong, .paymentRow, .paymentTotal { color: #f6f8fb; }
+.paymentRow { color: var(--app-muted); }
+.paymentTotal { background: #202d42; }
+.softButton { background: var(--app-lime); color: #111827; font-weight: 800; }
+.arrowButton { border: 1px solid rgba(255,255,255,0.12); background: #202d42; color: #f6f8fb; }
+.stepActions { margin-top: auto; padding-top: 8px; }
+.stepCard > .miniScreen { padding: 0; }
+
+/* Finition UI : contraste renforcé, navigation séparée de l'image et micro-interactions. */
+.topbar {
+  background: rgba(11, 16, 32, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.topbarScrolled { background: rgba(11, 16, 32, 0.99); }
+.hero { margin-top: 0; }
+.heroImage { transform: scale(1.015); transition: transform 700ms cubic-bezier(.2,.8,.2,1); }
+.hero:hover .heroImage { transform: scale(1.035); }
+
+.heroCopy,
+.slideMeta,
+.slideDetail,
+.slideCaption,
+.slotSelection,
+.paymentRow { color: #b8c4d9; }
+
+.slideContent h4,
+.paymentStrong,
+.paymentTotal,
+.stepHead h3 { color: #ffffff; }
+
+.fieldInput:focus-visible,
+.searchButton:focus-visible,
+.darkButton:focus-visible,
+.softButton:focus-visible,
+.arrowButton:focus-visible,
+.slotButton:focus-visible,
+.slotSelected:focus-visible {
+  outline: 3px solid rgba(215, 243, 107, 0.8);
+  outline-offset: 3px;
+}
+
+.stepCard { transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease; }
+.stepCard:hover { transform: translateY(-5px); border-color: rgba(215, 243, 107, 0.35); box-shadow: 0 24px 50px rgba(0, 0, 0, 0.24); }
+.stepCard .darkButton:hover,
+.stepCard .softButton:hover,
+.searchButton:hover { transform: translateY(-1px); filter: brightness(1.04); }
+
+/* Parcours premium : une seule coque visuelle, des surfaces calmes et une
+   hiérarchie proche d'un produit SaaS sportif haut de gamme. */
+.howGrid { gap: 22px; }
+
+/* UI refresh 2026 — one visual system, fewer nested surfaces and calmer hierarchy. */
+.page {
+  --app-bg: #080d19;
+  --app-panel: #101a2c;
+  --app-panel-soft: #17243b;
+  --app-line: rgba(181, 198, 225, 0.14);
+  --app-lime: #d7f36b;
+  --app-muted: #9eabc1;
+  background: var(--app-bg);
+  color: #f6f8fb;
+}
+
+.topbar {
+  width: 100%;
+  margin: 0;
+  padding: 16px max(24px, calc((100vw - 1280px) / 2));
+  background: rgba(8, 13, 25, 0.86);
+  border-bottom: 1px solid var(--app-line);
+  backdrop-filter: blur(18px);
+}
+
+.topbarScrolled { padding-top: 12px; padding-bottom: 12px; }
+.brandName, .topbarLink, .accountButton, .sportLink { border: 0; box-shadow: none; }
+.brandName { color: #fff; }
+.sportsNav { gap: 2px; }
+.sportLink { border-radius: 10px; color: #b5c0d2; transition: background 180ms ease, color 180ms ease; }
+.sportLink:hover, .sportLink:focus-visible { background: rgba(255,255,255,.08); color: #fff; }
+.topbarLink { color: #b5c0d2; }
+.topbarLink:hover { color: #fff; }
+.accountButton { background: var(--app-lime); }
+
+.main { width: min(1280px, calc(100% - 48px)); }
+.hero { min-height: min(760px, calc(100vh - 78px)); margin-top: 0; border-radius: 0 0 34px 34px; box-shadow: none; }
+.heroOverlay { background: linear-gradient(90deg, rgba(8,13,25,.92), rgba(8,13,25,.54) 48%, rgba(8,13,25,.12)); }
+.heroContent { padding: clamp(64px, 10vw, 132px) clamp(24px, 6vw, 84px); }
+.heroTitle { max-width: 720px; font-size: clamp(50px, 7.2vw, 96px); }
+.heroCopy { max-width: 520px; color: #c4cde0; }
+.searchCard { max-width: 700px; border: 1px solid rgba(255,255,255,.16); background: rgba(16,26,44,.82); box-shadow: 0 22px 48px rgba(0,0,0,.22); }
+.field { border: 0; background: transparent; }
+.fieldInput { border: 1px solid rgba(255,255,255,.11); background: #17243b; color: #fff; }
+.fieldInput:focus { box-shadow: 0 0 0 2px rgba(215,243,107,.55); }
+
+.section, .metricsSection, .recruitSection, .faqSection { margin-top: 84px; }
+.sectionHeading { max-width: 720px; margin-bottom: 28px; }
+.sectionHeading h2, .faqSection h2, .recruitCopy h2 { color: #fff; }
+.sectionHeading h2 { font-size: clamp(34px, 5vw, 58px); }
+.howGrid, .insightsGrid, .localesGrid, .metricsGrid { gap: 14px; }
+.stepCard, .insightCard, .localeColumn, .metric, .faqSection, .recruitCopy { border: 1px solid var(--app-line); background: var(--app-panel); box-shadow: none; }
+.stepCard { min-height: 640px; border-radius: 22px; padding: 20px; }
+.stepCard:hover { transform: translateY(-3px); border-color: rgba(215,243,107,.32); box-shadow: 0 16px 34px rgba(0,0,0,.18); }
+.stepHead h3 { font-size: 24px; }
+.stepNumber { width: 38px; height: 38px; border-radius: 11px; background: var(--app-panel-soft); color: var(--app-lime); }
+.miniScreen { gap: 14px; }
+.slideMedia, .slotVisual { border-radius: 16px; }
+.slideContent h4 { font-size: 22px; }
+.darkButton, .darkButtonLink, .softButton, .insightButton, .searchButton { min-height: 46px; border-radius: 12px; }
+.darkButton, .darkButtonLink, .softButton, .searchButton { background: var(--app-lime); color: #101827; }
+.softButton { font-weight: 800; }
+.arrowButton { border: 1px solid var(--app-line); background: var(--app-panel-soft); }
+.metricsGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.metric { border-radius: 18px; padding: 22px; }
+.metric strong { color: var(--app-lime); }
+.insightCard, .localeColumn { border-radius: 18px; padding: 22px; }
+.insightCardFeatured { background: linear-gradient(135deg, #17243b, #101a2c); }
+.recruitSection { gap: 0; overflow: hidden; border: 1px solid var(--app-line); border-radius: 24px; background: var(--app-panel); }
+.recruitMedia { min-height: 460px; border-radius: 0; box-shadow: none; }
+.recruitCopy { border: 0; border-radius: 0; padding: clamp(28px, 5vw, 64px); }
+.faqSection { padding: clamp(24px, 5vw, 48px); border-radius: 24px; }
+.faqItem { border: 0; border-bottom: 1px solid var(--app-line); border-radius: 0; background: transparent; padding: 20px 0; }
+.faqItem:last-child { border-bottom: 0; }
+.siteFooter { width: min(1280px, calc(100% - 48px)); border: 1px solid var(--app-line); background: #0d1525; }
+
+@media (max-width: 900px) {
+  .topbar { padding: 14px 16px; }
+  .main { width: calc(100% - 24px); }
+  .hero { min-height: 680px; border-radius: 0 0 24px 24px; }
+  .heroContent { padding: 68px 20px 28px; }
+  .metricsGrid { grid-template-columns: 1fr; }
+  .stepCard { min-height: 0; }
+  .siteFooter { width: calc(100% - 24px); }
+}
+.stepCard {
+  position: relative;
+  min-height: 672px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(151, 177, 218, 0.18);
+  border-radius: 26px;
+  background: linear-gradient(155deg, rgba(22, 36, 61, .98), rgba(12, 21, 39, .98));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.stepCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 18%;
+  left: 18%;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, rgba(215,243,107,.78), transparent);
+  opacity: .55;
+  pointer-events: none;
+}
+.stepCard:hover {
+  border-color: rgba(151, 184, 255, .34);
+  box-shadow: 0 30px 72px rgba(0, 0, 0, .30), inset 0 1px 0 rgba(255,255,255,.07);
+}
+.stepHead {
+  min-height: 62px;
+  margin: 0 4px 14px;
+  gap: 12px;
+}
+.stepHead h3 {
+  font-size: clamp(22px, 2.2vw, 29px);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.stepNumber {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border: 1px solid rgba(215,243,107,.24);
+  border-radius: 13px;
+  background: rgba(215,243,107,.12);
+  color: #d7f36b;
+  box-shadow: none;
+}
+.miniScreen {
+  position: relative;
+  gap: 14px;
+  padding: 0 8px 8px;
+  border-radius: 18px;
+}
+.slideMedia,
+.slotVisual,
+.paymentVisual {
+  border-radius: 18px;
+  box-shadow: 0 16px 34px rgba(0,0,0,.20);
+}
+.slideMedia,
+.slotVisual { aspect-ratio: 1.48 / 1; min-height: 188px; }
+.slideContent { gap: 8px; }
+.slideContent h4 { font-size: 22px; }
+.pill {
+  min-height: 30px;
+  padding: 0 11px;
+  border: 1px solid rgba(151,177,218,.16);
+  background: rgba(151,177,218,.10);
+  color: #dbe6f7;
+}
+.darkButton,
+.softButton {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 13px;
+}
+.darkButton { background: #d7f36b; color: #0b1220; }
+.softButton { background: rgba(151,177,218,.13); color: #f6f8fb; border: 1px solid rgba(151,177,218,.22); }
+.slotCaption,
+.slideCaption { color: #dbe6f7; font-size: 14px; font-weight: 700; }
+.slotRow { gap: 8px; }
+.slotButton,
+.slotSelected {
+  min-height: 38px;
+  padding: 0 13px;
+  border-radius: 11px;
+  border-color: rgba(151,177,218,.18);
+  background: rgba(151,177,218,.08);
+  color: #dbe6f7;
+}
+.slotSelected { background: #d7f36b; color: #0b1220; border-color: transparent; }
+.paymentVisual {
+  position: relative;
+  min-height: 154px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 24%, rgba(215,243,107,.30), transparent 24%),
+    linear-gradient(135deg, #20365b 0%, #12213c 58%, #0d172b 100%);
+}
+.paymentVisual::before {
+  content: "PAIEMENT SÉCURISÉ";
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  color: rgba(246,248,251,.72);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+.paymentVisual::after {
+  content: "✓";
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(215,243,107,.42);
+  border-radius: 50%;
+  background: rgba(215,243,107,.14);
+  color: #d7f36b;
+  font-size: 22px;
+}
+.paymentStrong { font-size: 17px; }
+.paymentTotal { padding: 14px 16px; border: 1px solid rgba(151,177,218,.12); border-radius: 14px; background: rgba(151,177,218,.09); }
+.paymentTotal strong { color: #d7f36b; font-size: 22px; }
+.stepActions { padding-top: 12px; }
+.arrowButton {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border-color: rgba(151,177,218,.18);
+  background: rgba(151,177,218,.09);
+  color: #eaf1fb;
+  font-size: 22px;
+}
+.dot,
+.dotActive { background: rgba(151,177,218,.28); }
+.dotActive { background: #d7f36b; }
+
+@media (max-width: 900px) {
+  .stepCard { min-height: 0; }
+  .miniScreen { padding-inline: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImage, .stepCard, .stepCard .darkButton, .stepCard .softButton, .searchButton { transition: none; transform: none; }
+}
+
+/* Signature motion : profondeur, halos et cartes cinétiques, sans dépendance lourde. */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 360px;
+  height: 360px;
+  right: -100px;
+  bottom: -130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(215, 243, 107, 0.26), transparent 68%);
+  filter: blur(16px);
+  pointer-events: none;
+  animation: pulseOrb 6s ease-in-out infinite;
+}
+
+.heroContent { animation: riseIn 700ms cubic-bezier(.16, 1, .3, 1) both; }
+.stepCard { position: relative; isolation: isolate; }
+.stepCard::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 18% -14% -18%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(215, 243, 107, 0.16), transparent 68%);
+  opacity: 0;
+  filter: blur(22px);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+.stepCard:hover::before { opacity: 1; transform: scale(1.08); }
+.stepCard:nth-child(1):hover,
+.stepCard:nth-child(2):hover,
+.stepCard:nth-child(3):hover { transform: translateY(-7px); }
+.stepNumber { box-shadow: 0 0 0 6px rgba(255, 138, 82, 0.08), 0 10px 24px rgba(255, 138, 82, 0.22); }
+.metricsSection { position: relative; overflow: hidden; }
+.metric { transition: transform 220ms ease, background 220ms ease; }
+.metric,
+.metric:hover {
+  background: #202d42;
+}
+.metric:hover { transform: translateY(-4px) rotate(-1deg); }
+.insightCard { transition: transform 220ms ease, border-color 220ms ease; }
+.insightCard:hover { transform: translateY(-5px) rotate(0.6deg); border-color: rgba(215, 243, 107, 0.35); }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseOrb {
+  0%, 100% { transform: scale(.86); opacity: .55; }
+  50% { transform: scale(1.08); opacity: .9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after, .heroContent { animation: none; }
+  .stepCard, .metric, .insightCard { transition: none; transform: none !important; }
+}
+
+@media (max-width: 900px) {
+  .stepCard { min-height: 0; }
+  .miniScreen { overflow: visible; }
+  .slideMedia, .slotVisual { min-height: 0; }
+}
+
+/* La home exploite mieux les écrans larges sans devenir étirée. */
+@media (min-width: 901px) {
+  .topbar,
+  .main {
+    width: min(1440px, calc(100% - 64px));
+  }
+
+  .siteFooter {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 26px 26px 0 0;
+  }
+}
+
+/* Palier tablette : les cartes restent lisibles sans attendre le mobile. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .topbar,
+  .main {
+    width: calc(100% - 40px);
+  }
+
+  .heroContent { padding: 68px 42px; }
+
+  .howGrid,
+  .insightsGrid,
+  .localesGrid,
+  .recruitSection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metricsGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .stepCard,
+  .insightCard,
+  .localeColumn,
+  .metric,
+  .recruitCopy {
+    min-width: 0;
+  }
+
+  .stepHead h3 { font-size: clamp(22px, 2.5vw, 28px); }
+}
+
+@media (min-width: 1000px) and (max-width: 1180px) {
+  .topbar {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .sportsNav,
+  .topbarActions {
+    justify-content: center;
+  }
+
+  .howGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stepCard { padding: 18px; }
+  .stepHead { gap: 9px; }
+  .stepHead h3 { font-size: 21px; }
+}
+
+/* 2026 marketplace composition: editorial sections, calm surfaces, and one
+   clear action per block. The footer intentionally stays outside this layer. */
+.page {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(85, 116, 173, 0.2), transparent 28%),
+    #080e1d;
+  color: #f6f8fb;
+}
+
+.topbar { width: min(1200px, calc(100% - 40px)); padding: 16px 0; }
+.brandName, .topbarLink, .accountButton, .sportLink { border: 0; background: transparent; box-shadow: none; backdrop-filter: none; }
+.brandName { min-height: 44px; padding: 0; color: #fff; font-size: 20px; }
+.brandName::before { color: #d7f36b; }
+.sportLink { min-height: 40px; color: #aebbd1; font-size: 13px; }
+.sportLink:hover { color: #d7f36b; }
+.topbarLink { min-height: 40px; color: #cbd5e1; }
+.accountButton { min-height: 42px; border-radius: 12px; background: #d7f36b; color: #111827; }
+.main { width: 100%; padding-bottom: 104px; }
+.hero { min-height: 100svh; margin-top: 0; border: 0; border-radius: 0; box-shadow: 0 28px 80px rgba(0,0,0,.3); }
+.heroOverlay { background: linear-gradient(90deg, rgba(8,14,29,.94) 0%, rgba(8,14,29,.7) 43%, rgba(8,14,29,.18) 100%); }
+.heroContent { width: min(760px, 100%); padding: 88px 64px; gap: 20px; }
+.eyebrow, .sectionKicker { color: #d7f36b; font-size: 11px; letter-spacing: .16em; }
+.heroTitle { max-width: 620px; font-size: clamp(48px, 7vw, 82px); }
+.heroCopy { max-width: 520px; color: #c4cfe1; font-size: 18px; }
+.searchCard { max-width: 650px; padding: 12px; border: 1px solid #324566; border-radius: 20px; background: rgba(17,26,45,.94); box-shadow: 0 18px 40px rgba(0,0,0,.28); }
+.field { border: 1px solid #3a4b68; background: #182640; }
+.field:focus-within { border-color: #d7f36b; box-shadow: 0 0 0 3px rgba(215,243,107,.12); }
+.fieldLabel { color: #d7f36b; }
+.searchButton { min-height: 54px; border-radius: 14px; background: #d7f36b; color: #111827; }
+.sportRail { display: grid; grid-template-columns: minmax(250px,.82fr) minmax(0,1.7fr); gap: 48px; align-items: end; padding: 92px 0 28px; }
+.sportRail .sectionHeading { max-width: 360px; }
+.sectionHeading { max-width: 760px; }
+.sectionHeading h2 { margin: 8px 0 0; color: #fff; font-size: clamp(30px, 4vw, 52px); letter-spacing: -.06em; }
+.sectionIntro { margin: 14px 0 0; color: #9eafca; line-height: 1.6; }
+.sportRailGrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+.sportRailCard { position: relative; overflow: hidden; min-height: 170px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid #2a3b58; border-radius: 18px; background: #111a2d; color: #fff; transition: transform 220ms ease, background 220ms ease, border-color 220ms ease; }
+.sportRailCard:hover { transform: translateY(-6px); border-color: #d7f36b; background: #182640; }
+.sportRailImage, .sportRailShade { position: absolute; inset: 0; }
+.sportRailImage { z-index: 0; object-fit: cover; transition: transform 420ms ease; }
+.sportRailShade { z-index: 1; background: linear-gradient(180deg, rgba(8,16,32,.12), rgba(8,16,32,.88)); }
+.sportRailCard:hover .sportRailImage { transform: scale(1.06); }
+.sportRailCard > :not(.sportRailImage):not(.sportRailShade) { position: relative; z-index: 2; }
+.sportRailIndex { color: #8394b0; font-size: 11px; letter-spacing: .12em; }
+.sportRailLabel { max-width: 110px; font-size: 17px; font-weight: 800; line-height: 1.1; }
+.sportRailAction { color: #d7f36b; font-size: 12px; font-weight: 800; }
+.section, .metricsSection, .recruitSection, .faqSection { margin-top: 88px; }
+.section { padding-top: 0; }
+.howGrid, .insightsGrid, .localesGrid { margin-top: 30px; }
+.stepCard, .insightCard, .localeColumn, .faqItem { border: 1px solid #2a3b58; background: #111a2d; box-shadow: 0 18px 42px rgba(0,0,0,.14); }
+.stepCard { border-radius: 22px; }
+.miniScreen { background: #182640; border-color: #2d4161; }
+.metricsSection { padding: 22px 0; border-block: 1px solid #22324d; }
+.metric strong { color: #d7f36b; }
+.metric span, .insightCard p, .localeColumn p, .recruitCopy p { color: #9eafca; }
+.insightCard, .localeColumn { border-radius: 18px; }
+.insightCard:hover, .localeColumn:hover { border-color: #516a92; background: #182640; }
+.recruitSection { overflow: hidden; border: 1px solid #2a3b58; border-radius: 24px; background: #111a2d; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+.recruitCopy {
+  border: 0;
+  background: #111a2d;
+  box-shadow: none;
+  color: #f6f8fb;
+}
+.recruitCopy h2 { color: #f6f8fb; }
+.recruitMedia { min-height: 420px; }
+.faqSection { padding-bottom: 24px; }
+.faqItem { border-radius: 14px; }
+
+/* Replace the legacy orange accent with the slate-blue visual language. */
+.sectionKicker { color: #9eb9db !important; }
+.stepNumber {
+  background: #2d4161 !important;
+  box-shadow: 0 0 0 6px rgba(45, 65, 97, .18), 0 10px 24px rgba(0, 0, 0, .2) !important;
+}
+
+/* Recherche unifiée : un seul cadre extérieur, champs fondus dans le parent. */
+.searchCard {
+  width: min(760px, calc(100vw - 80px));
+  max-width: none;
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(180px, .72fr);
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #3a4b68;
+  border-radius: 22px;
+  background: #111a2d;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .26);
+}
+
+.searchCard .field {
+  min-width: 0;
+  border: 0;
+  border-radius: 15px;
+  background: #182640;
+  box-shadow: none;
+}
+
+.searchCard .field:focus-within {
+  border: 0;
+  box-shadow: inset 0 0 0 1px rgba(215, 243, 107, .34);
+}
+
+.searchCard .searchButton { border: 0; }
+
+/* Focus unifié : le clavier/clic illumine uniquement le conteneur parent. */
+.searchCard:focus-within {
+  border-color: #d7f36b !important;
+  box-shadow: 0 0 0 3px rgba(215, 243, 107, .12), 0 20px 44px rgba(0, 0, 0, .26) !important;
+}
+
+.searchCard .field:focus-within,
+.searchCard .fieldInput:focus,
+.searchCard .fieldInput:focus-visible {
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+  .sportRail { grid-template-columns: 1fr; gap: 24px; padding-top: 64px; }
+  .sportRail .sectionHeading { max-width: none; }
+  .sportRailGrid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .heroContent { padding: 68px 32px; }
+}
+
+@media (max-width: 560px) {
+  .topbar { width: min(100% - 28px, 520px); }
+  .main { width: 100%; }
+  /* Keep the sport catalogue discoverable on small screens. The nav scrolls
+     horizontally instead of disappearing behind the mobile bottom bar. */
+  .sportsNav {
+    display: flex;
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+  .sportsNav::-webkit-scrollbar { display: none; }
+  .sportLink { flex: 0 0 auto; white-space: nowrap; }
+  .hero { min-height: 100svh; border-radius: 0; }
+  .heroContent { width: 100%; padding: 54px 20px; }
+  .heroTitle { font-size: clamp(42px, 14vw, 64px); }
+  .sportRailGrid { grid-template-columns: 1fr 1fr; }
+  .sportRailCard { min-height: 142px; padding: 14px; }
+  .searchCard { width: 100%; grid-template-columns: 1fr; }
+}
+
+/* Les sous-vues des cartes héritent de la surface du parent : une seule grande
+   zone sombre, sans empilement de panneaux bleus clair. Les contrôles courts
+   (boutons, créneaux et total) gardent leur contraste propre. */
+.stepCard .miniScreen,
+.stepCard .paymentVisual,
+.stepCard .paymentTotal {
+  background: #111a2d !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Bandeaux horizontaux : lecture éditoriale, geste tactile et cartes non empilées. */
+.sportRailGrid,
+.howGrid,
+.metricsGrid,
+.insightsGrid,
+.localesGrid {
+  display: flex;
+  grid-template-columns: none;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 2px 18px;
+}
+
+.sportRailGrid::-webkit-scrollbar,
+.howGrid::-webkit-scrollbar,
+.metricsGrid::-webkit-scrollbar,
+.insightsGrid::-webkit-scrollbar,
+.localesGrid::-webkit-scrollbar { display: none; }
+
+.sportRailCard { flex: 0 0 clamp(220px, 20vw, 286px); scroll-snap-align: start; }
+.stepCard { flex: 0 0 min(520px, 84vw); scroll-snap-align: center; }
+.metric { flex: 0 0 min(280px, 72vw); scroll-snap-align: start; }
+.insightCard, .localeColumn { flex: 0 0 min(380px, 78vw); scroll-snap-align: start; }
+
+/* The journey is a carousel track, not a three-column card grid. */
+.carouselHint {
+  margin: 14px 0 0;
+  color: var(--app-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.howGrid {
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(215, 243, 107, .65) transparent;
+  gap: 0;
+  padding: 24px 24px 22px;
+  border: 1px solid var(--app-line);
+  border-radius: 26px;
+  background: var(--app-panel);
+}
+
+.howGrid:active { cursor: grabbing; }
+.howGrid::-webkit-scrollbar { display: block; height: 5px; }
+.howGrid::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
+.howGrid::-webkit-scrollbar-thumb { background: rgba(215,243,107,.65); border-radius: 999px; }
+
+.howGrid .stepCard {
+  min-height: 0;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.howGrid .stepCard + .stepCard { border-left: 1px solid var(--app-line); }
+
+.howGrid .stepCard::before,
+.howGrid .stepCard::after { display: none; }
+
+.howGrid .stepCard .stepHead { padding: 0 4px; }
+.howGrid .stepCard .miniScreen {
+  min-height: 580px;
+  padding: 22px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+/* Strict carousel: one journey slide is visible at a time. */
+.carouselViewport {
+  overflow: hidden;
+  width: 100%;
+  border: 0;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: -8px 0 14px;
+}
+
+.carouselCounter {
+  min-width: 58px;
+  color: var(--app-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-align: center;
+}
+
+.carouselButton {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--app-line);
+  border-radius: 50%;
+  background: var(--app-panel-soft);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.carouselButton:hover { border-color: var(--app-lime); color: var(--app-lime); }
+.carouselButton:focus-visible { outline: 2px solid var(--app-lime); outline-offset: 3px; }
+
+.carouselViewport > .carouselControls {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.carouselViewport > .carouselControls .carouselButton {
+  position: absolute;
+  top: 50%;
+  pointer-events: auto;
+  transform: translateY(-50%);
+}
+
+.carouselViewport > .carouselControls .carouselButton:first-child { left: 42px; }
+.carouselViewport > .carouselControls .carouselButton:last-child { right: 42px; }
+.carouselViewport > .carouselControls .carouselCounter {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carouselViewport .howGrid {
+  display: flex;
+  width: max-content;
+  overflow: visible;
+  gap: 18px;
+  padding: 18px 0 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  scrollbar-width: none;
+  cursor: default;
+  transition: transform 520ms cubic-bezier(.22, .8, .2, 1);
+  will-change: transform;
+}
+
+.carouselViewport .howGrid::-webkit-scrollbar { display: none; }
+.carouselViewport .howGrid .stepCard {
+  flex: 0 0 clamp(300px, 68vw, 760px);
+  width: clamp(300px, 68vw, 760px);
+  padding: 0;
+  opacity: .42;
+  transform: scale(.88);
+  transition: opacity 360ms ease, transform 360ms ease, filter 360ms ease;
+  filter: saturate(.72);
+}
+
+.carouselViewport .howGrid .stepCard[data-active="true"] { opacity: 1; transform: scale(1); filter: saturate(1); }
+.carouselViewport .howGrid .stepCard:hover { transform: scale(.9); }
+.carouselViewport .howGrid .stepCard .stepHead { padding-inline: 8px; }
+.carouselViewport .howGrid .stepCard .miniScreen { min-height: 520px; }
+.carouselViewport .howGrid .stepCard + .stepCard { border-left: 0; }
+
+.carouselViewport {
+  position: relative;
+  margin-inline: -24px;
+  padding-inline: 24px;
+  background: #05070c;
+  border-block: 1px solid rgba(255,255,255,.08);
+}
+
+.carouselViewport::before,
+.carouselViewport::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  pointer-events: none;
+  content: "";
+}
+
+.carouselViewport::before { left: 0; background: linear-gradient(90deg, #05070c, transparent); }
+.carouselViewport::after { right: 0; background: linear-gradient(270deg, #05070c, transparent); }
+
+@media (max-width: 900px) {
+  .carouselViewport { margin-inline: -12px; padding-inline: 12px; }
+  .carouselViewport .howGrid .stepCard { flex-basis: 82vw; width: 82vw; }
+  .carouselViewport > .carouselControls .carouselButton:first-child { left: 18px; }
+  .carouselViewport > .carouselControls .carouselButton:last-child { right: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carouselViewport .howGrid { transition: none; }
+}
+
+.howGrid::after,
+.metricsGrid::after,
+.insightsGrid::after,
+.localesGrid::after,
+.sportRailGrid::after { content: ""; flex: 0 0 1px; }
+
+@media (min-width: 901px) {
+  .sportRailGrid,
+  .howGrid,
+  .metricsGrid,
+  .insightsGrid,
+  .localesGrid {
+    margin-right: calc((min(1280px, 100vw - 48px) - 100vw) / 2);
+    padding-right: max(24px, calc((100vw - 1280px) / 2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sportRailGrid,
+  .howGrid,
+  .metricsGrid,
+  .insightsGrid,
+  .localesGrid { scroll-behavior: auto; }
+}

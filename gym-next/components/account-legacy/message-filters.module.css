@@ -1,0 +1,1 @@
+.filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0;min-width:0}.filters label{min-width:0}.filters select{width:100%;min-height:44px;max-width:100%;box-sizing:border-box;font:inherit}.summary{overflow-wrap:anywhere}@media(max-width:600px){.filters{grid-template-columns:minmax(0,1fr)}}

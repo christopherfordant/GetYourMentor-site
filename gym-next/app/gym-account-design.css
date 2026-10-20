@@ -1,0 +1,283 @@
+@import "./gym-design-tokens.css";
+@import "./gym-discovery-design.css";
+@import "./gym-editorial-design.css";
+
+/* Lot 1: one opt-in account boundary supersedes the injected legacy rules.
+   IDs give a stable scope; !important is limited to properties already forced
+   by legacy/global rules. Header labels and destinations are preserved; mobile groups may wrap. */
+body:has(#gym-account) { background: var(--gym-paper) !important; }
+#gym-account { background: var(--gym-paper) !important; color: var(--gym-ink); height: auto !important; max-height: none !important; overflow: visible !important; }
+#gym-account > .topbar { background: var(--gym-surface) !important; border-color: var(--gym-line) !important; }
+#gym-account > .topbar :is(a, .language-selector-trigger) { color: var(--gym-ink) !important; }
+#gym-account > .topbar .account-button { color: white !important; background: var(--gym-primary) !important; border-color: var(--gym-primary) !important; }
+#gym-account > .topbar .language-selector-trigger { background: var(--gym-primary-soft) !important; border-color: var(--gym-line) !important; }
+
+#gym-account .account-page {
+  display: block !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  min-height: 0 !important;
+  height: auto !important;
+  margin-inline: auto !important;
+  padding: 32px 20px !important;
+  color: var(--gym-ink);
+  background: var(--gym-paper) !important;
+}
+#gym-account .account-panel {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 24px !important;
+  overflow: visible !important;
+  background: var(--gym-paper) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--gym-ink) !important;
+}
+/* The legacy animated sheen grows with the whole dashboard and overflows
+   by > 1400 px. Remove this decoration instead of clipping account content. */
+#gym-account .account-panel::before,
+#gym-account .account-panel::after { content: none !important; }
+#gym-account .account-session-controls {
+  background: var(--gym-surface);
+  color: var(--gym-ink);
+  border: 1px solid var(--gym-line);
+  border-radius: var(--gym-radius);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+#gym-account .account-session-controls a { color: var(--gym-ink); }
+#gym-account .account-session-controls button { background: var(--gym-primary); border-color: var(--gym-primary); color: white; }
+#gym-account .account-page :is(h1,h2,h3,h4) { color: var(--gym-ink) !important; }
+#gym-account .account-page :is(p,.auth-field > span,.auth-caption,.auth-helper) { color: var(--gym-muted) !important; }
+#gym-account :is(.account-dashboard, .coach-home-focus) {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  gap: var(--gym-space) !important;
+  color: var(--gym-ink);
+  background: transparent !important;
+}
+#gym-account .account-dashboard { display: grid !important; grid-template-columns: minmax(0,1fr) !important; align-items: start !important; }
+#gym-account .coach-home { grid-template-columns: 220px minmax(0,1fr) !important; grid-template-areas: none !important; }
+#gym-account .coach-home > :is(section, .coach-home-focus) { grid-column: 2 !important; grid-row: auto !important; }
+#gym-account .coach-home > .coach-home-sidebar { grid-column: 1 !important; grid-row: 1 / span 9 !important; }
+#gym-account .account-dashboard-card {
+  min-width: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 24px !important;
+  border: 1px solid var(--gym-line) !important;
+  border-radius: var(--gym-radius) !important;
+  background: var(--gym-surface) !important;
+  box-shadow: none !important;
+  color: var(--gym-ink) !important;
+  overflow-wrap: break-word; word-break: normal;
+}
+#gym-account .account-dashboard :is(h2,h3,h4,strong) { color: var(--gym-ink) !important; }
+#gym-account .account-dashboard :is(p,span,label) { color: var(--gym-muted) !important; }
+#gym-account .account-dashboard button span { color: inherit !important; }
+#gym-account .account-dashboard h3 { font-size: 20px; line-height: 1.3; letter-spacing: -.025em; }
+#gym-account .account-dashboard a { color: var(--gym-primary-hover); }
+#gym-account .account-dashboard button { min-height: 44px; }
+#gym-account .account-page :is(input,select,textarea) { max-width: 100%; min-width: 0; color: var(--gym-ink) !important; background: var(--gym-surface) !important; border-color: #9b91a5 !important; }
+#gym-account .account-page input::placeholder, #gym-account .account-page textarea::placeholder { color: var(--gym-muted); opacity: 1; }
+#gym-account :is(.auth-primary, .account-primary-action) { background: var(--gym-primary) !important; color: white !important; border-color: var(--gym-primary) !important; }
+#gym-account :is(.auth-secondary, .account-inline-actions button) { background: var(--gym-primary-soft); color: var(--gym-primary-hover); border: 1px solid #c9b3dc; }
+#gym-account :is(a,button,input,select,textarea,[data-coach-action-message]):focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 3px; }
+#gym-account :is(.account-dashboard-grid,.coach-home-profile-preview-grid) { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; min-width: 0; }
+#gym-account .coach-home-profile-preview-grid > div { min-width: 0; padding: 14px; background: var(--gym-paper); border: 1px solid var(--gym-line); border-radius: 8px; }
+#gym-account .coach-home-profile-preview-grid :is(span,strong) { display: block; overflow-wrap: break-word; word-break: normal; }
+#gym-account .coach-home-profile-preview-grid span { font-size: 12px; }
+#gym-account .coach-home-profile-preview-grid strong { margin-top: 6px; font-size: 16px; }
+
+#gym-account .coach-home-sidebar {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: start !important;
+  gap: 20px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  padding: 20px !important;
+  border-radius: var(--gym-radius);
+  background: var(--gym-surface) !important;
+  border: 1px solid var(--gym-line);
+  color: var(--gym-ink) !important;
+}
+#gym-account .coach-home-sidebar :is(.coach-home-nav-group,.coach-home-nav-footer) { display: grid !important; grid-template-columns: minmax(0,1fr) !important; gap: 6px !important; padding: 0 !important; }
+#gym-account .coach-home-sidebar a {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 44px !important;
+  height: auto !important;
+  padding: 10px 12px !important;
+  border: 1px solid var(--gym-line) !important;
+  border-radius: 7px !important;
+  background: var(--gym-primary-soft) !important;
+  color: var(--gym-primary-hover) !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+#gym-account .coach-home-sidebar a:hover { background: #e2d1f0 !important; }
+#gym-account .coach-home-nav-heading { color: var(--gym-muted) !important; font-size: 11px !important; letter-spacing: .08em; padding: 8px 0 !important; }
+#gym-account .coach-home-nav-main { width: 100% !important; min-height: 44px; padding: 12px !important; border: 0 !important; border-radius: 7px; color: white !important; background: var(--gym-primary) !important; }
+#gym-account .coach-home-focus { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+#gym-account .coach-home-focus > :is(.coach-home-next-session,.coach-home-profile-preview,.coach-home-standalone-cta) { grid-column: 1 / -1 !important; }
+#gym-account .coach-home-focus > * { min-width: 0; position: relative; inset: auto; }
+#gym-account .coach-home-editorial-image { position: relative !important; inset: auto !important; height: 160px !important; min-height: 0 !important; width: 100% !important; overflow: hidden !important; border-radius: 8px; margin-bottom: 20px; opacity: 1 !important; }
+#gym-account .coach-home-editorial-image img { position: absolute !important; object-fit: cover; }
+#gym-account :is(.coach-home-rating-score,.coach-home-revenue-amount) { color: var(--gym-primary-hover) !important; font-size: 36px !important; line-height: 1.2; }
+#gym-account .coach-home-inline-link { display: inline-flex; align-items: center; flex-wrap: wrap; min-height: 44px; max-width: 100%; padding: 10px 14px !important; border-radius: 7px; color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft) !important; font-size: 14px !important; }
+#gym-account :is(.coach-home-schedule,.coach-home-request-list) article { color: var(--gym-ink); padding: 14px !important; border: 1px solid var(--gym-line) !important; background: var(--gym-paper) !important; border-radius: 8px; }
+#gym-account :is(.coach-home-card-head,.account-inline-actions) { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; min-width: 0; }
+
+@media (max-width: 900px) {
+  #gym-account .account-page { padding: 24px 12px !important; }
+  #gym-account .account-panel { padding: 0 !important; }
+  #gym-account .coach-home { grid-template-columns: minmax(0,1fr) !important; }
+  #gym-account .coach-home > :is(section,.coach-home-focus,.coach-home-sidebar) { grid-column: 1 !important; grid-row: auto !important; }
+  #gym-account .coach-home-sidebar :is(.coach-home-nav-group,.coach-home-nav-footer) { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; }
+  #gym-account .coach-home-sidebar a { flex: 1 1 120px; width: auto !important; }
+  #gym-account .coach-home-nav-heading { flex-basis: 100%; }
+  #gym-account .coach-home-focus { grid-template-columns: minmax(0,1fr) !important; }
+  #gym-account .coach-home-focus > * { grid-column: 1 !important; }
+}
+@media (max-width: 620px) {
+  #gym-account .account-dashboard-card { padding: 20px !important; }
+  #gym-account .account-session-controls { padding: 18px; }
+  #gym-account :is(.account-dashboard-grid,.coach-home-profile-preview-grid) { grid-template-columns: minmax(0,1fr) !important; }
+  #gym-account .account-page :is(input,select,textarea) { font-size: 16px; }
+  #gym-account .account-dashboard h3 { font-size: 19px; }
+  #gym-account .coach-home-sidebar { padding: 18px !important; }
+}
+
+/* Light refinement: native controls retain keyboard and touch semantics. */
+#gym-account > .topbar { gap: 16px; padding: 16px 24px; box-shadow: 0 2px 12px #14131608; }
+#gym-account > .topbar :is(.sports-nav,.topbar-actions) { gap: 12px; min-width: 0; flex-wrap: wrap; }
+#gym-account > .topbar a { white-space: normal; word-break: normal; }
+#gym-account > .topbar :is(.sport-link,.topbar-link):hover { color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft); border-radius: 8px; }
+#gym-account .language-selector-menu { background: var(--gym-surface) !important; border: 1px solid var(--gym-line) !important; box-shadow: 0 12px 32px #14131618; border-radius: 12px; }
+#gym-account .language-selector-menu :is(button,.language-selector-menu-title) { color: var(--gym-ink) !important; }
+#gym-account .language-selector-menu button { background: var(--gym-surface) !important; min-height: 44px; }
+#gym-account .language-selector-menu button:is(:hover,.is-selected) { color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft) !important; }
+#gym-account .account-page :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { width: 100%; min-height: 44px; padding: 12px 14px !important; border: 1px solid #9b91a5 !important; border-radius: 10px !important; font: inherit; line-height: 1.5; box-sizing: border-box; }
+#gym-account .account-page select { color-scheme: light; padding-right: 32px; }
+#gym-account .account-page option { background: white; color: var(--gym-ink); }
+#gym-account .account-page textarea { min-height: 120px; resize: vertical; }
+#gym-account .account-page :is(input,select,textarea):hover { border-color: var(--gym-primary) !important; }
+#gym-account .account-page :is(input,select,textarea)[aria-invalid=true] { border-color: #b42318 !important; background: #fff4f2 !important; }
+#gym-account :is(button,input,select,textarea):disabled { opacity: .65; cursor: not-allowed; }
+#gym-account .auth-primary:hover:not(:disabled) { background: var(--gym-primary-hover) !important; }
+#gym-account .auth-field { display: grid; gap: 8px; min-width: 0; margin: 0; }
+#gym-account [data-coach-profile-editor] form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin-top: 24px; }
+#gym-account [data-coach-profile-editor] form > :is(fieldset,button,p), #gym-account [data-coach-profile-editor] form > label:has(textarea) { grid-column: 1 / -1; }
+#gym-account .account-page :is(h1,h2,h3,h4,p,label) { word-break: normal; overflow-wrap: break-word; }
+#gym-account .account-page p { line-height: 1.65; }
+@media(max-width:900px) {
+ #gym-account > .topbar { display:flex !important; flex-wrap:wrap !important; height:auto !important; gap:12px; padding:12px; }
+ #gym-account > .topbar .brand-lockup { flex:1 1 100%; }
+ #gym-account > .topbar .sports-nav { display:flex !important; flex:1 1 100%; justify-content:flex-start; flex-wrap:wrap; gap:8px 16px; }
+ #gym-account > .topbar .sports-nav a { min-height:44px; display:inline-flex; align-items:center; }
+ #gym-account > .topbar .topbar-actions { display:flex !important; flex:1 1 100%; justify-content:flex-start; flex-wrap:wrap; gap:8px; }
+}
+@media(max-width:620px) { #gym-account [data-coach-profile-editor] form { grid-template-columns:minmax(0,1fr); } #gym-account > .topbar .account-button { min-height:44px; padding:10px 12px; } }
+
+/* The account uses the native language picker, avoiding two overlapping controls. */
+#gym-account .language-selector-native .language-selector-trigger,
+#gym-account .language-selector-native .language-selector-menu { display: none !important; }
+#gym-account .language-selector-native { min-width: 0; width: 110px; }
+#gym-account .language-selector-native select { position: static !important; opacity: 1 !important; width: 100%; height: auto; min-height: 44px; padding: 10px; border: 1px solid var(--gym-line) !important; border-radius: 10px !important; background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; font-size: 16px; }
+#gym-account > .topbar .topbar-link { display: inline-flex !important; align-items: center; min-height: 44px; }
+#gym-account .account-footer { background: var(--gym-surface) !important; border-top: 1px solid var(--gym-line); color: var(--gym-muted) !important; }
+#gym-account .account-footer :is(a,p,h3,h4,.footer-brand,.account-footer-bottom) { color: var(--gym-ink) !important; }
+body:has(#gym-account) :is(.cookie-consent-banner,.cookie-preferences-trigger,.back-to-top) { background: var(--gym-surface) !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; }
+body:has(#gym-account) .cookie-consent-banner :is(p,strong) { color: var(--gym-ink) !important; }
+body:has(#gym-account) .cookie-consent-primary { background: var(--gym-primary) !important; color: white !important; }
+body:has(#gym-account) .cookie-consent-secondary { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
+
+#gym-account > .topbar { box-shadow: 0 2px 12px #14131608 !important; }
+#gym-account > .topbar .topbar-link { background: var(--gym-primary-soft) !important; border: 1px solid var(--gym-line) !important; border-radius: 10px; padding: 10px 12px; }
+#gym-account .global-footer { background: var(--gym-surface) !important; color: var(--gym-muted) !important; border-color: var(--gym-line); }
+#gym-account .global-footer :is(a,h2,strong,small) { color: var(--gym-ink) !important; }
+#gym-account .global-footer :is(.global-footer-mark,.global-footer-social) { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
+#gym-account .global-footer a:focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 3px; }
+#gym-account .global-footer-main { grid-template-columns: minmax(0,1.5fr) repeat(4,minmax(0,1fr)); gap: 24px; }
+#gym-account .global-footer-column { min-width: 0; overflow-wrap: break-word; }
+@media(max-width:1100px) { #gym-account .global-footer-main { grid-template-columns: repeat(2,minmax(0,1fr)); } #gym-account .global-footer-brand { grid-column: 1 / -1; } }
+@media(max-width:900px) { #gym-account > .topbar { position: relative !important; top: auto !important; } }
+@media(max-width:620px) { #gym-account .global-footer-main { grid-template-columns: minmax(0,1fr); } }
+
+#gym-account .account-page .auth-field, #gym-club-signup .auth-field { background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; color: var(--gym-ink) !important; }
+#gym-account .account-page fieldset.auth-field { padding: 16px !important; border: 1px solid var(--gym-line) !important; border-radius: 10px !important; background: var(--gym-paper) !important; }
+#gym-account .account-page :is(legend,.auth-field label) { color: var(--gym-ink) !important; }
+
+#gym-account .language-selector-native { background: transparent !important; border: 0 !important; }
+#gym-account .coach-home-mini-tabs { background: var(--gym-paper) !important; border: 1px solid var(--gym-line); }
+#gym-account .coach-home-mini-tabs span { background: transparent !important; color: var(--gym-muted) !important; }
+#gym-account .coach-home-mini-tabs .is-active { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
+
+#gym-account .auth-card { background: var(--gym-surface) !important; border: 1px solid var(--gym-line) !important; border-radius: 16px; color: var(--gym-ink) !important; box-shadow: none !important; }
+#gym-account .auth-card::before, #gym-account .auth-card::after { content: none !important; }
+#gym-account :is(.auth-pill-button,.password-toggle) { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; border-color: var(--gym-line) !important; }
+#gym-account :is(.auth-form,.password-field) { background: transparent !important; }
+#gym-account .auth-link { color: var(--gym-primary-hover) !important; }
+
+#gym-account .coach-home-requests > button { max-width: 100%; min-width: 0; box-sizing: border-box; white-space: normal !important; overflow-wrap: break-word; min-height: 44px; padding: 10px 14px; border: 1px solid var(--gym-line); border-radius: 10px; background: var(--gym-primary-soft); color: var(--gym-primary-hover); font: inherit; cursor: pointer; }
+
+/* Shared session action, in flow above every authenticated profile. */
+#gym-account .account-session-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; padding:16px; border:1px solid var(--gym-line); border-radius:12px; background:var(--gym-surface); }
+#gym-account .account-session-controls :is(a,button) { min-height:44px; display:inline-flex; align-items:center; font:inherit; }
+#gym-account .account-session-controls button { padding:10px 16px; background:var(--gym-primary); color:white; border:0; border-radius:8px; cursor:pointer; }
+#gym-account .account-session-controls p { flex-basis:100%; margin:0; color:#b42318; }
+#gym-account .account-session-controls :is(a,button):focus-visible { outline:3px solid var(--gym-focus); outline-offset:3px; }
+#gym-account #account-content { scroll-margin-top:24px; }
+
+/* Reservation information remains grouped and readable on every viewport. */
+#gym-account [data-athlete-reservation] { display: grid; gap: 8px; padding: 20px 0; border-bottom: 1px solid var(--gym-line); min-width: 0; }
+#gym-account [data-athlete-reservation] :is(button,a,input) { max-width: 100%; justify-self: start; }
+
+#gym-account .coach-home-request-list { display:grid; gap:12px; margin-top:12px; }
+#gym-account .coach-home-request-list article { display:grid; gap:8px; min-width:0; }
+#gym-account .coach-home-request-list [data-coach-action-message] { margin-block:0; }
+
+/* Access forms: shared paper/violet contract for sign-in, registration and structure leads. */
+:is(#gym-account,#gym-club-signup) .gym-access-form { display: grid; gap: 20px; color: var(--gym-ink); font: 15px/1.5 var(--gym-font-body); }
+:is(#gym-account,#gym-club-signup) .gym-access-form .auth-field { display: grid; gap: 8px; min-width: 0; }
+:is(#gym-account,#gym-club-signup) .gym-access-form .auth-field > span { color: var(--gym-ink) !important; font: 600 14px/1.5 var(--gym-font-body); letter-spacing: normal; text-transform: none; }
+:is(#gym-account,#gym-club-signup) .gym-access-form :is(input:not([type=checkbox]):not([type=hidden]),select) { width: 100%; min-width: 0; min-height: 44px; padding: 12px 14px !important; border: 1px solid #9b91a5 !important; border-radius: 10px !important; background: white !important; color: var(--gym-ink) !important; font: inherit; }
+:is(#gym-account,#gym-club-signup) .gym-access-form :is(input,button,a):focus-visible { outline: 3px solid var(--gym-focus); outline-offset: 3px; }
+:is(#gym-account,#gym-club-signup) .gym-access-form [aria-invalid=true] { border-color: #b42318; }
+:is(#gym-account,#gym-club-signup) .gym-access-form .auth-primary { min-height: 48px; background: var(--gym-primary) !important; color: white !important; border: 1px solid var(--gym-primary); border-radius: 10px; font: 700 15px/1.5 var(--gym-font-body); }
+:is(#gym-account,#gym-club-signup) .gym-access-form .auth-primary:hover:not(:disabled) { background: var(--gym-primary-hover) !important; }
+:is(#gym-account,#gym-club-signup) .gym-access-form :disabled { opacity: .65; cursor: not-allowed; }
+:is(#gym-account,#gym-club-signup) .gym-access-form :is(.auth-helper,[role=alert],[role=status]) { margin: 0; font-size: 13px; line-height: 1.6; overflow-wrap: break-word; }
+#gym-club-signup { background: var(--gym-paper) !important; color: var(--gym-ink) !important; }
+#gym-club-signup > .topbar { position: relative; height: auto; min-height: 80px; flex-wrap: wrap; background: white !important; color: var(--gym-ink) !important; border-bottom: 1px solid var(--gym-line); }
+#gym-club-signup > .topbar a { color: var(--gym-ink) !important; }
+#gym-club-signup > .topbar .account-button { color: white !important; background: var(--gym-primary) !important; border-color: var(--gym-primary) !important; }
+#gym-club-signup .club-signup-page { min-height: 0; padding: 32px 20px; max-width: 1240px; margin-inline: auto; grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); align-items: start; gap: 32px; background: var(--gym-paper) !important; color: var(--gym-ink) !important; }
+#gym-club-signup .club-signup-visual { min-height: 0; padding: 32px; background: var(--gym-primary-soft); border: 1px solid var(--gym-line); border-radius: var(--gym-radius); }
+#gym-club-signup .club-signup-form-panel { min-height: 0; padding: 0; background: transparent !important; }
+#gym-club-signup .club-signup-form-card { width: 100%; max-width: none; padding: 28px; background: white !important; border: 1px solid var(--gym-line); border-radius: var(--gym-radius); }
+#gym-club-signup .club-signup-form-card h1 { color: var(--gym-ink); font: 36px/1.1 var(--gym-font-display); margin: 0 0 16px; }
+#gym-club-signup .club-signup-form-card > .auth-helper { color: var(--gym-muted) !important; font: 14px/1.6 var(--gym-font-body); margin-bottom: 24px; }
+#gym-club-signup .club-signup-grid { gap: 20px; }
+#gym-club-signup .club-signup-dropzone { min-height: 0; padding: 0; border: 0; background: none; }
+#gym-club-signup .club-signup-submit { width: 100%; min-width: 0; }
+@media(max-width:767px) {
+ #gym-club-signup > .topbar { gap: 12px; padding: 16px; }
+ #gym-club-signup > .topbar :is(.sports-nav,.topbar-actions) { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; }
+ #gym-club-signup .club-signup-page { display: block; padding: 20px 12px; }
+ #gym-club-signup .club-signup-visual { display: none; }
+ #gym-club-signup .club-signup-form-card { padding: 20px 16px; }
+ #gym-club-signup .club-signup-grid { grid-template-columns: minmax(0,1fr); }
+}

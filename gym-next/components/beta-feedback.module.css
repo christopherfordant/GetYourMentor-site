@@ -1,0 +1,17 @@
+.root { padding-block: 24px; }
+.grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; align-items: start; }
+.card { background: var(--gym-surface,#fff); border: 1px solid var(--gym-line,#dedbe3); border-radius: 10px; padding: clamp(18px,3vw,28px); min-width: 0; margin-bottom: 24px; overflow-wrap: anywhere; }
+.card h2 { margin: 0 0 16px; font-size: 24px; }
+.card h3 { margin: 12px 0; font-size: 20px; }
+.card p { line-height: 1.6; overflow-wrap: anywhere; }
+.card label { display:block; margin: 16px 0; line-height:1.5; }
+.card input:not([type=checkbox]), .card select, .card textarea { display:block; width:100%; min-width:0; padding:12px; font:inherit; margin-top:8px; background:#fff; color:#141316; border:1px solid #625e69; border-radius:6px; }
+.card textarea { resize:vertical; }
+.card button, .refresh { font:inherit; min-height:44px; max-width:100%; white-space:normal; padding:12px 18px; background:#872bbf; color:white; border:1px solid #872bbf; border-radius:6px; cursor:pointer; }
+.card button:hover, .refresh:hover { background:#612087; }
+.card button:disabled { background:#eee4f7; color:#625e69; cursor:default; border-color:#dedbe3; }
+.root :is(button,input,select,textarea,a):focus-visible { outline:3px solid #3863f2; outline-offset:3px; }
+.item { border-top:1px solid #dedbe3; padding-block:20px; min-width:0; }
+.badge { color:#612087; font-size:14px; font-weight:bold; }
+.status { min-height:24px; line-height:1.5; }
+@media(max-width:760px) { .grid{grid-template-columns:1fr} }

@@ -1,0 +1,90 @@
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --surface-soft: #f3f4f6;
+  --ink: #1f2937;
+  --ink-soft: #5b6472;
+  --line: rgba(31, 42, 58, 0.12);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-manrope), sans-serif;
+  background: linear-gradient(180deg, #f8f7f3 0%, #f3f5f8 100%);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ .language-selector {
+  display: inline-flex;
+  align-items: center;
+}
+
+.language-selector select {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.35rem 0.55rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.directory-filter-panel {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1rem;
+  background: rgba(17, 24, 39, 0.94);
+  color: #fff;
+}
+
+.directory-filter-panel label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+}
+
+.directory-filter-panel select,
+.directory-filter-panel button {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #172033;
+  padding: 0.45rem 0.55rem;
+}
+
+.directory-filter-check {
+  display: flex !important;
+  align-items: end;
+  grid-template-columns: auto 1fr;
+}

@@ -1,0 +1,5 @@
+.language { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 8px; color: var(--gym-muted); font: 500 12px/1.5 var(--gym-font-body); white-space: nowrap; }
+.footer { display: none; }
+@media(max-width:767px) { .header { display: none; } .footer { display: inline-flex; padding-inline: 0; white-space: normal; } }
+
+:global(body:not(:has(header [data-site-language]))) .footer { display: inline-flex; }

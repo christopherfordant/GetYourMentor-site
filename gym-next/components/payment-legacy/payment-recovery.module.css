@@ -1,0 +1,9 @@
+.message{overflow-wrap:anywhere}.message:focus-visible{outline:3px solid var(--gym-focus,#3863f2);outline-offset:4px}.check{width:100%;min-height:44px;white-space:normal;box-sizing:border-box;font:inherit;cursor:pointer}.reference{overflow-wrap:anywhere;font-size:14px}
+
+:global(.site-shell) .side :global(.payment-summary-card){background:#f5f1fb !important;color:#241a38 !important;border-color:#d6c8e8 !important}
+:global(.site-shell) .side :global(.payment-summary-card) h2,:global(.site-shell) .side :global(.payment-summary-line) span,:global(.site-shell) .side :global(.payment-summary-line) strong,:global(.site-shell) .side :global(.payment-summary-total) span,:global(.site-shell) .side :global(.payment-summary-total) strong,:global(.site-shell) .side :global(.payment-note),:global(.site-shell) .side .reference{color:#241a38 !important}
+:global(.site-shell) .side :global(.payment-summary-total){border-color:#b8a4ce !important}
+:global(.site-shell) .side :global(.payment-success-card){background:#fff !important;color:#241a38 !important}
+:global(.site-shell) .side :global(.payment-success-card) h3,:global(.site-shell) .side :global(.payment-success-card) p,:global(.site-shell) .side :global(.payment-success-card) p a{color:#241a38 !important}
+:global(.site-shell) .side :global(.payment-submit){background:#6b21a8 !important;color:#fff !important}
+:global(.site-shell) .side :global(.payment-submit):disabled{opacity:1 !important;background:#e5dbea !important;color:#473451 !important}
