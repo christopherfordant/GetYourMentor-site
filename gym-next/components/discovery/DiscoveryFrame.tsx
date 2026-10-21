@@ -13,7 +13,7 @@ export const discoverySports = [
 export function DiscoveryFrame({ children, page, demo = false }: { children: ReactNode; page: "search" | "directory" | "profile" | "slot" | "recap"; demo?: boolean }) {
   const [open,setOpen]=useState(false);const trigger=useRef<HTMLButtonElement>(null);const panel=useRef<HTMLDivElement>(null);
   useEffect(()=>{const media=window.matchMedia("(min-width: 761px)");const reset=()=>{if(media.matches)setOpen(false);else if(panel.current?.contains(document.activeElement))trigger.current?.focus();};media.addEventListener("change",reset);return()=>media.removeEventListener("change",reset);},[]);
-  return <div id="gym-discovery" className="discovery-editorial" data-gym-discovery={page}>
+  return <div id="gym-discovery" className={`discovery-editorial${["search", "directory", "profile"].includes(page) ? " gym-theme-factory" : ""}`} data-gym-discovery={page}>
     <header className="de-header" id="top" onKeyDown={event=>{if(event.key==="Escape"&&open){setOpen(false);trigger.current?.focus();}}}>
       <a className="de-brand" href={nextRoutes.home} aria-label="GetYourMentor"><b aria-hidden="true">GYM<span>↗</span></b><span>GetYourMentor</span></a>
       <button className="de-menu-toggle" ref={trigger} type="button" aria-label={open?"Fermer le menu":"Menu"} aria-expanded={open} aria-controls="discovery-navigation" onClick={()=>setOpen(value=>!value)}><span aria-hidden="true">{open?"×":"☰"}</span><span className="de-menu-label" aria-hidden="true">{open?"Fermer":"Menu"}</span></button>

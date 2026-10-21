@@ -1,4 +1,4 @@
-/* Approved pitch direction, 15 October 2026. Opt-in: existing pages keep their theme. */
+/* Legacy tokens retained only for pages awaiting migration to the approved Factory theme. */
 :root {
   --gym-font-body: Arial, Helvetica, sans-serif;
   --gym-font-display: Impact, "Arial Narrow", Arial, sans-serif;
@@ -14,3 +14,34 @@
   --gym-radius: 12px;
   --gym-space: 24px;
 }
+
+/* Approved 21 October 2026. Scoped rollout keeps unreviewed legacy routes intact.
+   Bright orange is an accent; white-labelled actions use deep orange for contrast. */
+body:has(.gym-theme-factory), .gym-theme-factory {
+  --gym-font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --gym-font-display: var(--gym-font-body);
+  --gym-paper: #141414;
+  --gym-surface: #1c1c1c;
+  --gym-surface-raised: #222222;
+  --gym-ink: #fcfbf9;
+  --gym-muted: #d4d4d8;
+  --gym-primary: #ff5400;
+  --gym-primary-hover: #ff8a4c;
+  --gym-primary-soft: #30221b;
+  --gym-action: #c2410c;
+  --gym-action-hover: #9a3412;
+  --gym-line: #454545;
+  --gym-control-line: #858585;
+  --gym-focus: #ff5400;
+  --gym-inverse-surface: #222222;
+  --gym-brand-surface: #c2410c;
+  --gym-brand-accent: #ffffff;
+  --gym-error: #fca5a5;
+  --gym-heading-weight: 800;
+  --gym-heading-case: none;
+  --gym-control-scheme: dark;
+  --gym-radius: 8px;
+  --gym-card-radius: 16px;
+  color-scheme: dark;
+}
+html:has(.gym-theme-factory) { background: #141414; color-scheme: dark; }

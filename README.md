@@ -1,5 +1,7 @@
 # GetYourMentor — site de démonstration
 
+Interface en cours d'harmonisation : recherche, annuaire et fiches coachs utilisent une identité anthracite/orange et une police système. Les autres pages conservent leur présentation précédente pendant la migration. Les paiements restent simulés.
+
 Application Next.js indépendante, exportée depuis la version ddd2f54. Nouvel historique Git ; aucun document métier, RAG, session ou environnement réel inclus.
 
 ## Installation
