@@ -37,6 +37,7 @@ body:has(.gym-theme-factory), .gym-theme-factory {
   --gym-brand-surface: #c2410c;
   --gym-brand-accent: #ffffff;
   --gym-error: #fca5a5;
+  --gym-error-surface: #2f1d1d;
   --gym-heading-weight: 800;
   --gym-heading-case: none;
   --gym-control-scheme: dark;

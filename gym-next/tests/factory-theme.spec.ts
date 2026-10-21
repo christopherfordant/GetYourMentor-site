@@ -51,9 +51,9 @@ test("Factory cookies and mobile disclosure retain keyboard operation", async ({
   await expect(page.getByRole("button", { name: "Préférences cookies", exact: true })).toBeFocused();
 });
 
-test("Unmigrated booking routes do not inherit the Factory palette", async ({ page }) => {
+test("Booking routes now inherit Factory while access validation stays explicit", async ({ page }) => {
   await page.goto("/recapitulatif");
   await expect(page.locator("#gym-discovery")).toBeVisible();
-  await expect(page.locator(".gym-theme-factory")).toHaveCount(0);
-  await expect(page.locator("#gym-discovery")).toHaveCSS("background-color", "rgb(246, 244, 240)");
+  await expect(page.locator(".gym-theme-factory")).toHaveCount(1);
+  await expect(page.locator("#gym-discovery")).toHaveCSS("background-color", "rgb(20, 20, 20)");
 });
