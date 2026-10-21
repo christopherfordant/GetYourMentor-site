@@ -3,7 +3,7 @@ import { ContactCoachForm } from "@/components/booking-legacy/ContactCoachForm";
 type ProfileDetails = { bio: string; specialty: string; diploma: string; disciplines?: string; sessionTypes?: string; availability?: string };
 
 export function CoachDetails({ coach, profile, isActive }: { coach: string; profile: ProfileDetails; isActive: boolean }) {
-  return <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="apropos" id="booking-apropos-section">
+  return <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="apropos" id="booking-apropos-section" role="tabpanel" aria-labelledby="booking-tab-apropos" tabIndex={0}>
     <div className="de-booking-pane-grid">
       <div className="de-booking-pane-main">
         <article className="de-booking-story-card">

@@ -285,7 +285,7 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 }
 
 /* Application adaptations: account access, legal links, cookies and touch. */
-body:has(#gym-editorial) { background: #f6f4f0 !important; --mobile-navigation-space: 0px; padding-bottom: calc(var(--mobile-navigation-space) + var(--cookie-controls-height,0px) + 80px) !important; }
+body:has(#gym-editorial) { background: #f6f4f0 !important; --mobile-navigation-space: 0px; }
 #gym-editorial { min-height: 100vh; isolation: isolate; }
 #gym-editorial .header-cta { display: inline-flex; align-items: center; min-height: 44px; }
 #gym-editorial .sports a { font-size: 10px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; }
@@ -306,7 +306,6 @@ body:has(#gym-editorial) :is(.cookie-controls,.cookie-preferences-trigger,.cooki
 body:has(#gym-editorial) .cookie-controls > * { bottom: auto !important; }
 body:has(#gym-editorial) .cookie-consent-banner { max-height: 42dvh; overflow-y: auto; }
 body:has(#gym-editorial) .back-to-top { bottom: calc(var(--mobile-navigation-space) + var(--cookie-controls-height,0px) + 64px) !important; }
-body:has(#gym-editorial):has(.cookie-consent-banner) .back-to-top { display: none !important; }
 @media(max-width:760px) {
  body:has(#gym-editorial) { --mobile-navigation-space: 90px; }
  #gym-editorial .header { display: grid; grid-template-columns: minmax(0,1fr) auto; }

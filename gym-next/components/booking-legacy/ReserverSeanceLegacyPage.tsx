@@ -164,40 +164,30 @@ function BookingHeroSection({
           <strong data-booking-heading>{`Construis ta prochaine session avec ${coach}`}</strong>
           <p>Choisis ton objectif, propose tes disponibilités et reçois la validation du coach.</p>
         </div>
-        <button className="de-booking-primary-action" type="button" onClick={() => onTabChange("planning")}>
+        <button className="de-booking-primary-action" type="button" onClick={() => { onTabChange("planning"); document.getElementById("booking-tab-planning")?.focus(); }}>
           Réserver
         </button>
       </div>
 
-      <nav
-        className="de-booking-tabs de-booking-tabs-profile"
-        aria-label="Sections du profil"
-      >
-        <button
-          className={`de-booking-tab${activeTab === "apropos" ? " is-active" : ""}`}
-          type="button"
-          data-booking-tab="apropos" aria-pressed={activeTab === "apropos"} aria-controls="booking-apropos-section"
-          onClick={() => onTabChange("apropos")}
-        >
-          A propos
-        </button>
-        <button
-          className={`de-booking-tab${activeTab === "planning" ? " is-active" : ""}`}
-          type="button"
-          data-booking-tab="planning" aria-pressed={activeTab === "planning"} aria-controls="booking-planning-section"
-          onClick={() => onTabChange("planning")}
-        >
-          Planning
-        </button>
-        <button
-          className={`de-booking-tab${activeTab === "contenus" ? " is-active" : ""}`}
-          type="button"
-          data-booking-tab="contenus" aria-pressed={activeTab === "contenus"} aria-controls="booking-contenus-section"
-          onClick={() => onTabChange("contenus")}
-        >
-          Contenus
-        </button>
-      </nav>
+      <div className="de-booking-tabs de-booking-tabs-profile" role="tablist" aria-label="Sections du profil"
+        onKeyDown={event => {
+          const keys = ["apropos", "planning", "contenus"] as const;
+          const current = keys.indexOf(activeTab);
+          const next = event.key === "ArrowRight" ? (current + 1) % keys.length
+            : event.key === "ArrowLeft" ? (current + keys.length - 1) % keys.length
+            : event.key === "Home" ? 0 : event.key === "End" ? keys.length - 1 : -1;
+          if (next < 0) return;
+          event.preventDefault();
+          onTabChange(keys[next]);
+          event.currentTarget.querySelector<HTMLButtonElement>(`[data-booking-tab="${keys[next]}"]`)?.focus();
+        }}>
+        {([ ["apropos", "À propos"], ["planning", "Planning"], ["contenus", "Contenus"] ] as const).map(([key, label]) =>
+          <button key={key} id={`booking-tab-${key}`} role="tab" type="button"
+            className={`de-booking-tab${activeTab === key ? " is-active" : ""}`}
+            data-booking-tab={key} aria-selected={activeTab === key} aria-controls={`booking-${key}-section`}
+            tabIndex={activeTab === key ? 0 : -1} onClick={() => onTabChange(key)}>{label}</button>
+        )}
+      </div>
       <div className="de-booking-tabs-spacer" data-booking-tabs-spacer aria-hidden="true"></div>
     </section>
   );
@@ -223,7 +213,7 @@ function BookingPlanningPane({
   const currentWeek = weekSets[weekIndex];
 
   return (
-    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="planning" id="booking-planning-section">
+    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="planning" id="booking-planning-section" role="tabpanel" aria-labelledby="booking-tab-planning" tabIndex={0}>
       <div className="de-booking-planning-shell">
         <p className="de-discovery-note">Planning indicatif de présentation. Les créneaux, la durée et le prix de la prestation sont vérifiés à l’étape de réservation. Toute demande reste soumise à l’acceptation du coach.</p>
         <header className="de-booking-section-head de-booking-section-head-planning">
@@ -292,7 +282,7 @@ function BookingContenusPane({
   const [unlocked, setUnlocked] = useState(false);
 
   return (
-    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="contenus" id="booking-contenus-section">
+    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="contenus" id="booking-contenus-section" role="tabpanel" aria-labelledby="booking-tab-contenus" tabIndex={0}>
       <section className="de-booking-content-social" data-content-lock-root>
         <div className="de-booking-content-profile">
           <div className="de-booking-content-cover"></div>
@@ -403,24 +393,6 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: 
   const [activeTab, setActiveTab] = useState<"apropos" | "planning" | "contenus">("apropos");
   const [weekIndex, setWeekIndex] = useState(0);
   const galleryMainRef = useRef<HTMLDivElement | null>(null);
-  const hasMountedRef = useRef(false);
-
-
-  useEffect(() => {
-    if (!hasMountedRef.current) {
-      hasMountedRef.current = true;
-      return;
-    }
-
-    const targets = {
-      apropos: "booking-apropos-section",
-      planning: "booking-planning-section",
-      contenus: "booking-contenus-section",
-    } as const;
-
-    const target = document.getElementById(targets[activeTab]);
-    target?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-  }, [activeTab]);
 
   return (
     <>

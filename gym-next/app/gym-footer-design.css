@@ -1,5 +1,5 @@
 /* One utility row in each footer. Consent stays outside the footer; only its preference control is portalled. */
-body:has(:is(#gym-editorial,#gym-discovery,#gym-account,.site-shell) [data-footer-utilities]) { min-height: 100dvh; display: flex; flex-direction: column; padding-bottom: calc(var(--mobile-navigation-space,0px) + env(safe-area-inset-bottom,0px)) !important; }
+body:has([data-footer-utilities]) { min-height: 100dvh; display: flex; flex-direction: column; padding-bottom: calc(var(--mobile-navigation-space,0px) + var(--cookie-banner-space,0px) + env(safe-area-inset-bottom,0px)) !important; }
 body:has([data-footer-utilities]) :is(#gym-editorial,#gym-discovery,#gym-account,.site-shell) { display: flex; flex-direction: column; flex: 1; min-height: calc(100dvh - var(--mobile-navigation-space,0px)); }
 body:has([data-footer-utilities]) :is(#gym-editorial,#gym-discovery,#gym-account,.site-shell)>main { flex: 1; min-height: 0 !important; }
 body:has([data-footer-utilities]) footer { position: relative; margin-top: auto; }

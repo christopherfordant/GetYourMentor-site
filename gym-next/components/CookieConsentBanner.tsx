@@ -8,6 +8,25 @@ const CONSENT_KEY = "gym-cookie-consent-v1";
 export function CookieConsentBanner({ preferencesTarget }: { preferencesTarget?: HTMLElement | null } = {}) {
   const [visible, setVisible] = useState<boolean | null>(null);
   const openedFromPreference = useRef(false);
+  const bannerRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    if (!visible || !bannerRef.current) return;
+    const banner = bannerRef.current;
+    const reserveSpace = () => {
+      const bounds = banner.getBoundingClientRect();
+      const bottom = Math.max(0, parseFloat(getComputedStyle(banner).bottom) || 0);
+      document.documentElement.style.setProperty("--cookie-banner-space", `${Math.ceil(bounds.height + bottom + 8)}px`);
+    };
+    reserveSpace();
+    const observer = new ResizeObserver(reserveSpace);
+    observer.observe(banner);
+    window.addEventListener("resize", reserveSpace);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", reserveSpace);
+      document.documentElement.style.removeProperty("--cookie-banner-space");
+    };
+  }, [visible, preferencesTarget]);
   useEffect(() => {
     if (visible === false && openedFromPreference.current) {
       (preferencesTarget ?? document).querySelector<HTMLButtonElement>(".cookie-preferences-trigger")?.focus();
@@ -32,7 +51,6 @@ export function CookieConsentBanner({ preferencesTarget }: { preferencesTarget?:
         type="button"
         className="cookie-preferences-trigger"
         onClick={() => { openedFromPreference.current = true; setVisible(true); }}
-        aria-haspopup="dialog"
         aria-expanded="false"
         aria-controls="cookie-consent-banner"
       >
@@ -44,6 +62,7 @@ export function CookieConsentBanner({ preferencesTarget }: { preferencesTarget?:
 
   return (
     <aside
+      ref={bannerRef}
       id="cookie-consent-banner"
       className="cookie-consent-banner"
       role="region"

@@ -1,6 +1,6 @@
 /* One shared editorial sheet for search, directory and profile.
    These routes no longer inject legacy-prototype.css. The ID contains global legacy rules. */
-body:has(#gym-discovery.discovery-editorial) { background: var(--gym-paper) !important; --mobile-navigation-space: 0px; padding-bottom: calc(var(--cookie-controls-height,0px) + 92px) !important; }
+body:has(#gym-discovery.discovery-editorial) { background: var(--gym-paper) !important; --mobile-navigation-space: 0px; }
 html:has(#gym-discovery.discovery-editorial) { scroll-padding-top: 20px; scroll-padding-bottom: 24px; }
 #gym-discovery.discovery-editorial { width: 100%; min-height: 100vh; margin: 0; padding: 0; color: var(--gym-ink); background: var(--gym-paper); font-family: var(--gym-font-body); line-height: 1.5; isolation: isolate; }
 #gym-discovery *, #gym-discovery *::before, #gym-discovery *::after { box-sizing: border-box; }
@@ -124,8 +124,9 @@ html:has(#gym-discovery.discovery-editorial) { scroll-padding-top: 20px; scroll-
 #gym-discovery .de-booking-profile-lead strong { font-size: 22px; }
 #gym-discovery .de-booking-profile-lead p { margin-top: 10px; font-size: 14px; color: var(--gym-muted); }
 #gym-discovery .de-booking-tabs { display: flex; flex-wrap: wrap; gap: 8px; position: relative; padding: 12px; margin: 0 0 28px; border: 1px solid var(--gym-line); border-radius: var(--gym-card-radius,10px); background: var(--gym-inverse-surface,var(--gym-ink)); }
-#gym-discovery .de-booking-tab { min-height: 44px; padding: 12px 22px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: white; font-size: 13px; }
-#gym-discovery .de-booking-tab.is-active { background: var(--gym-action,var(--gym-primary)); }
+#gym-discovery .de-booking-tab { flex: 1 1 6em; min-width: 0; min-height: 48px; padding: 12px 8px; font-weight: 600; overflow-wrap: anywhere; border: 1px solid transparent; border-radius: 6px; background: transparent; color: white; font-size: 13px; }
+#gym-discovery .de-booking-tab.is-active { background: var(--gym-action,var(--gym-primary)); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; font-weight: 800; }
+#gym-discovery .de-booking-tab:hover:not(.is-active) { background: var(--gym-primary-soft); }
 #gym-discovery .de-booking-tabs-spacer { display: none; }
 #gym-discovery .de-booking-pane { scroll-margin-top: 24px; }
 #gym-discovery .de-booking-pane:not(.is-active) { display: none; }
@@ -169,7 +170,6 @@ body:has(#gym-discovery.discovery-editorial) .cookie-consent-banner :is(p,strong
 body:has(#gym-discovery.discovery-editorial) .cookie-consent-primary { background: var(--gym-action,var(--gym-primary)) !important; color: white !important; }
 body:has(#gym-discovery.discovery-editorial) .cookie-consent-secondary { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
 body:has(#gym-discovery.discovery-editorial) .cookie-consent-banner { max-height: 42dvh; overflow-y: auto; }
-body:has(#gym-discovery.discovery-editorial):has(.cookie-consent-banner) .back-to-top { display: none !important; }
 /* Non-modal mobile disclosure: links retain their native semantics and order. */
 #gym-discovery .de-menu-toggle { display:none; }
 #gym-discovery .de-navigation-panel { display:contents; }
