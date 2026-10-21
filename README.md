@@ -12,6 +12,8 @@ Vérifications : `npm run check:types`, `npm run build`, `npm test` (Chromium Pl
 ## Périmètre
 Réservations, comptes, structures, suivi et paiements de démonstration. Les profils exportés sont synthétiques. Aucun débit réel ; aucune preuve de disponibilité commerciale. La mémoire locale disparaît au redémarrage ; stockage distant, RLS et production doivent être configurés et vérifiés séparément. Ne fournir aucune clé Stripe ou messagerie pour la recette démo.
 
+Le compte sportif peut télécharger un fichier calendrier `.ics` pour ses séances acceptées ou payées. Import manuel uniquement : aucune connexion à un agenda externe, aucune synchronisation des déplacements ou annulations. Le fichier ne contient pas de coordonnées, participants ou codes d'accès. Sa préparation ne confirme ni l'import dans un agenda, ni un paiement réel.
+
 Les photographies et ressources tierces dont les droits n'étaient pas établis ne sont pas exportées : un SVG neutre original les remplace. L'apparence diffère donc du site source. Les fonctions de recherche documentaire interne et l'interface RAG sont exclues. Les autres règles d'accès restent dans le code.
 
 ## Sécurité et publication

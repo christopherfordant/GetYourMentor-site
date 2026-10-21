@@ -8,6 +8,7 @@ import { AthleteCancellation } from "./AthleteCancellation";
 import { isCoachReservation } from "./coach-request-data";
 import { MessageInbox } from "@/components/account-legacy/MessageInbox";
 import { ReservationReview } from "@/components/account-legacy/ReservationReview";
+import { ReservationCalendar } from "./ReservationCalendar";
 
 export function AthleteDashboard({ demo = false, email = "" }: { demo?: boolean; email?: string }) {
   const locks=useRef(new Set<string>());
@@ -88,6 +89,7 @@ export function AthleteDashboard({ demo = false, email = "" }: { demo?: boolean;
             {reservation.reservationCode ? <span>Code : {reservation.reservationCode}</span> : null}
             <AthleteCancellation key={`${email}:${reservation.id}`} reservation={reservation} email={email} demo={demo} externalBusy={locks.current.has(reservation.id)||moveBlocked.has(reservation.id)} acquire={()=>lock(reservation.id)} release={()=>unlock(reservation.id)} onChanged={row=>setReservations(current=>current.map(item=>item.id===row.id?row:item))}>{(blocked,cancelBlocked)=><>
             {reservation.status === "accepted" && !blocked ? <a className="reservation-payment-link" href={`/paiement?reservationId=${encodeURIComponent(reservation.id)}`}>Payer ma séance</a> : null}
+            {demo ? <ReservationCalendar key={`${email}:${reservation.id}:${reservation.appointmentAt ?? reservation.slots.join()}:${reservation.status}`} reservation={reservation} disabled={blocked || cancelBlocked || locks.current.has(reservation.id)} /> : null}
             <AthleteReschedule reservation={reservation} email={email} disabled={cancelBlocked||locks.current.has(reservation.id)} acquire={()=>lock(reservation.id)} release={()=>unlock(reservation.id)} onBlocked={value=>blockMove(reservation.id,value)} onChanged={row=>setReservations(current=>current.map(item=>item.id===row.id?row:item))}/>
             </>}</AthleteCancellation>
             {reservation.status === "paid" ? <ReservationReview reservation={reservation} reviewed={reviewIds.includes(reservation.id)} ready={reviewsReady} onCreated={() => setReviewIds(ids => [...ids, reservation.id])} /> : null}
