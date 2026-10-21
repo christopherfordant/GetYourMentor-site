@@ -613,14 +613,14 @@
 .sport-page-shell,
 .coach-profile-shell,
 .account-shell,
-.payment-shell,
+.payment-shell:not(:where(.gym-theme-factory *)),
 .recap-shell,
 .reservation-shell,
 .sport-page,
 .coach-directory-page,
 .booking-page,
 .account-page,
-.payment-page,
+.payment-page:not(:where(.gym-theme-factory *)),
 .recap-page,
 .reservation-page,
 .club-signup-page {
@@ -635,8 +635,8 @@
 .booking-card,
 .booking-contact-card,
 .reservation-card,
-.payment-card,
-.payment-summary-card,
+.payment-card:not(:where(.gym-theme-factory *)),
+.payment-summary-card:not(:where(.gym-theme-factory *)),
 .auth-card,
 .account-dashboard-card,
 .account-panel,
@@ -666,13 +666,13 @@
 .field,
 .auth-field,
 .booking-field,
-.payment-field,
+.payment-field:not(:where(.gym-theme-factory *)),
 .reservation-field,
 .sport-search-card input,
 .sport-search-card select,
 .coach-directory-toolbar input,
 .coach-directory-toolbar select,
-.payment-method,
+.payment-method:not(:where(.gym-theme-factory *)),
 .reservation-day,
 .reservation-slot,
 .reservation-coach-option,
@@ -688,7 +688,7 @@
 .coach-result-card:hover,
 .reservation-slot.is-selected,
 .reservation-coach-option.is-active,
-.payment-method.is-active {
+.payment-method:not(:where(.gym-theme-factory *)).is-active {
   background: #203252 !important;
 }
 
@@ -698,7 +698,7 @@
 .coach-profile-shell,
 .booking-shell,
 .account-shell,
-.payment-shell,
+.payment-shell:not(:where(.gym-theme-factory *)),
 .recap-shell,
 .reservation-shell,
 .club-signup-shell,
@@ -706,7 +706,7 @@
 .coach-directory-page,
 .booking-page,
 .account-page,
-.payment-page,
+.payment-page:not(:where(.gym-theme-factory *)),
 .recap-page,
 .reservation-page,
 .club-signup-page {
@@ -892,8 +892,8 @@
 .booking-card,
 .booking-contact-card,
 .reservation-card,
-.payment-card,
-.payment-summary-card,
+.payment-card:not(:where(.gym-theme-factory *)),
+.payment-summary-card:not(:where(.gym-theme-factory *)),
 .auth-card,
 .account-panel,
 .account-dashboard-card,
@@ -913,8 +913,8 @@
 .coach-profile-card,
 .coach-booking-card,
 .booking-card,
-.payment-card,
-.payment-summary-card,
+.payment-card:not(:where(.gym-theme-factory *)),
+.payment-summary-card:not(:where(.gym-theme-factory *)),
 .auth-card,
 .club-signup-form-card,
 .reservation-selection-panel,
@@ -929,8 +929,8 @@
 .coach-profile-card:hover,
 .coach-booking-card:hover,
 .booking-card:hover,
-.payment-card:hover,
-.payment-summary-card:hover,
+.payment-card:not(:where(.gym-theme-factory *)):hover,
+.payment-summary-card:not(:where(.gym-theme-factory *)):hover,
 .club-signup-form-card:hover,
 .reservation-calendar-card:hover,
 .coach-map-panel:hover {
@@ -945,8 +945,8 @@
 .coach-result-footer,
 .account-dashboard-card > section,
 .account-dashboard-card > article,
-.payment-card section,
-.payment-summary-card section {
+.payment-card:not(:where(.gym-theme-factory *)) section,
+.payment-summary-card:not(:where(.gym-theme-factory *)) section {
   background: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
@@ -960,7 +960,7 @@
 .coach-booking-media img,
 .coach-map-panel,
 .recap-header-shot,
-.payment-card-head {
+.payment-card-head:not(:where(.gym-theme-factory *)) {
   border-radius: 16px !important;
 }
 
@@ -969,8 +969,8 @@
 .coach-profile-card h2,
 .coach-booking-card h2,
 .booking-card h2,
-.payment-card h2,
-.payment-summary-card h2,
+.payment-card:not(:where(.gym-theme-factory *)) h2,
+.payment-summary-card:not(:where(.gym-theme-factory *)) h2,
 .account-dashboard-card h2,
 .account-dashboard-card h3,
 .auth-card h1,
@@ -986,8 +986,8 @@
 .coach-day-card,
 .coach-day-period,
 .account-dashboard-card p,
-.payment-card p,
-.payment-summary-card p,
+.payment-card:not(:where(.gym-theme-factory *)) p,
+.payment-summary-card:not(:where(.gym-theme-factory *)) p,
 .booking-card p,
 .auth-subtitle,
 .legal-placeholder-card p {
@@ -999,7 +999,7 @@
 .reservation-day,
 .reservation-slot,
 .reservation-coach-option,
-.payment-method,
+.payment-method:not(:where(.gym-theme-factory *)),
 .directory-chip,
 .directory-chip-secondary,
 .directory-chip-filter {
@@ -1011,7 +1011,7 @@
 
 .reservation-slot.is-selected,
 .reservation-coach-option.is-active,
-.payment-method.is-active,
+.payment-method:not(:where(.gym-theme-factory *)).is-active,
 .coach-book-button,
 .reservation-confirm-button,
 .recap-dark-button,
@@ -1038,7 +1038,7 @@
 .directory-filter-panel,
 .reservation-form,
 .reservation-field,
-.payment-field,
+.payment-field:not(:where(.gym-theme-factory *)),
 .sport-search-field,
 .coach-booking-card .booking-card-stack {
   border-color: var(--line-soft) !important;
@@ -1052,9 +1052,9 @@
 .directory-filter-panel select,
 .reservation-field input,
 .reservation-field select,
-.payment-field input,
-.payment-field select,
-.payment-method {
+.payment-field:not(:where(.gym-theme-factory *)) input,
+.payment-field:not(:where(.gym-theme-factory *)) select,
+.payment-method:not(:where(.gym-theme-factory *)) {
   border: 1px solid var(--line-soft) !important;
   border-radius: 11px !important;
   background: rgba(151,177,218,.08) !important;
@@ -1066,8 +1066,8 @@
 .directory-filter-panel select:focus,
 .reservation-field input:focus,
 .reservation-field select:focus,
-.payment-field input:focus,
-.payment-field select:focus {
+.payment-field:not(:where(.gym-theme-factory *)) input:focus,
+.payment-field:not(:where(.gym-theme-factory *)) select:focus {
   border-color: rgba(215,243,107,.62) !important;
   box-shadow: 0 0 0 3px rgba(215,243,107,.12) !important;
 }
@@ -1114,8 +1114,8 @@
   .coach-profile-card,
   .coach-booking-card,
   .booking-card,
-  .payment-card,
-  .payment-summary-card,
+  .payment-card:not(:where(.gym-theme-factory *)),
+  .payment-summary-card:not(:where(.gym-theme-factory *)),
   .auth-card,
   .account-panel,
   .account-dashboard-card,
@@ -1132,7 +1132,7 @@
   .sport-page-shell,
   .coach-profile-shell,
   .account-shell,
-  .payment-shell,
+  .payment-shell:not(:where(.gym-theme-factory *)),
   .recap-shell,
   .reservation-shell {
     padding-inline: 14px !important;
@@ -1321,8 +1321,8 @@ html { scroll-behavior: auto !important; }
   .coach-map-panel,
   .account-auth-stage,
   .auth-card,
-  .payment-card,
-  .payment-summary-card,
+  .payment-card:not(:where(.gym-theme-factory *)),
+  .payment-summary-card:not(:where(.gym-theme-factory *)),
   .reservation-calendar-card {
     backdrop-filter: none !important;
   }
@@ -1446,7 +1446,7 @@ html { scroll-behavior: auto !important; }
 .sport-page-shell > .topbar::before,
 .coach-profile-shell > .topbar::before,
 .account-shell > .topbar::before,
-.payment-shell > .topbar::before,
+.payment-shell:not(:where(.gym-theme-factory *)) > .topbar::before,
 .reservation-shell > .topbar::before,
 .booking-shell > .topbar::before,
 .club-signup-shell > .topbar::before,
@@ -1476,7 +1476,7 @@ header.topbar,
 .sport-page-shell > .topbar::before,
 .coach-profile-shell > .topbar::before,
 .account-shell > .topbar::before,
-.payment-shell > .topbar::before,
+.payment-shell:not(:where(.gym-theme-factory *)) > .topbar::before,
 .reservation-shell > .topbar::before,
 .booking-shell > .topbar::before,
 .club-signup-shell > .topbar::before,
@@ -1604,7 +1604,7 @@ header.topbar > *,
 .sport-page-shell > .topbar,
 .coach-profile-shell > .topbar,
 .account-shell > .topbar,
-.payment-shell > .topbar,
+.payment-shell:not(:where(.gym-theme-factory *)) > .topbar,
 .reservation-shell > .topbar,
 .booking-shell > .topbar,
 .club-signup-shell > .topbar,
@@ -1621,7 +1621,7 @@ header.topbar > *,
 .sport-page-shell > .topbar::before,
 .coach-profile-shell > .topbar::before,
 .account-shell > .topbar::before,
-.payment-shell > .topbar::before,
+.payment-shell:not(:where(.gym-theme-factory *)) > .topbar::before,
 .reservation-shell > .topbar::before,
 .booking-shell > .topbar::before,
 .club-signup-shell > .topbar::before,
@@ -1646,7 +1646,7 @@ header.topbar > *,
 .sport-page-shell > .topbar > *,
 .coach-profile-shell > .topbar > *,
 .account-shell > .topbar > *,
-.payment-shell > .topbar > *,
+.payment-shell:not(:where(.gym-theme-factory *)) > .topbar > *,
 .reservation-shell > .topbar > *,
 .booking-shell > .topbar > *,
 .club-signup-shell > .topbar > *,
@@ -1680,7 +1680,7 @@ header.topbar > *,
   .sport-page-shell > .topbar::before,
   .coach-profile-shell > .topbar::before,
   .account-shell > .topbar::before,
-  .payment-shell > .topbar::before,
+  .payment-shell:not(:where(.gym-theme-factory *)) > .topbar::before,
   .reservation-shell > .topbar::before,
   .booking-shell > .topbar::before,
   .club-signup-shell > .topbar::before,
@@ -1922,7 +1922,7 @@ header.topbar > *,
 .coach-booking-card,
 .sport-city-card,
 .auth-card,
-.payment-card,
+.payment-card:not(:where(.gym-theme-factory *)),
 .reservation-calendar-card {
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
@@ -1940,7 +1940,7 @@ header.topbar > *,
 .directory-search-button,
 .search-button,
 .auth-primary,
-.payment-submit,
+.payment-submit:not(:where(.gym-theme-factory *)),
 .reservation-confirm-button {
   transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
 }
@@ -1949,7 +1949,7 @@ header.topbar > *,
 .directory-search-button:hover,
 .search-button:hover,
 .auth-primary:hover,
-.payment-submit:hover,
+.payment-submit:not(:where(.gym-theme-factory *)):hover,
 .reservation-confirm-button:hover {
   transform: translateY(-2px) scale(1.015);
   filter: brightness(1.06);
@@ -1965,7 +1965,7 @@ header.topbar > *,
   .directory-search-button,
   .search-button,
   .auth-primary,
-  .payment-submit,
+  .payment-submit:not(:where(.gym-theme-factory *)),
   .reservation-confirm-button { transition: none; transform: none !important; }
 }
 
@@ -1974,7 +1974,7 @@ header.topbar > *,
 .site-shell.coach-profile-shell,
 .site-shell.booking-shell,
 .site-shell.account-shell,
-.site-shell.payment-shell,
+.site-shell.payment-shell:not(:where(.gym-theme-factory *)),
 .site-shell.recap-shell,
 .site-shell.reservation-shell,
 .site-shell.club-signup-shell,
@@ -1982,7 +1982,7 @@ header.topbar > *,
 .coach-directory-page,
 .booking-page,
 .account-page,
-.payment-page,
+.payment-page:not(:where(.gym-theme-factory *)),
 .recap-page,
 .reservation-page,
 .club-signup-page {
@@ -1993,7 +1993,7 @@ header.topbar > *,
 .site-shell .topbar.topbar-light,
 .site-shell .topbar,
 .site-shell.account-shell .topbar,
-.site-shell.payment-shell .topbar,
+.site-shell.payment-shell:not(:where(.gym-theme-factory *)) .topbar,
 .site-shell.recap-shell .topbar,
 .site-shell.reservation-shell .topbar {
   background: rgba(11, 16, 32, 0.96) !important;
@@ -2023,7 +2023,7 @@ header.topbar > *,
 .coach-directory-content,
 .booking-main,
 .reservation-main,
-.payment-main,
+.payment-main:not(:where(.gym-theme-factory *)),
 .account-panel,
 .account-auth-stage {
   color: #f6f8fb;
@@ -2037,8 +2037,8 @@ header.topbar > *,
 .booking-page h2,
 .reservation-page h1,
 .reservation-page h2,
-.payment-page h1,
-.payment-page h2,
+.payment-page:not(:where(.gym-theme-factory *)) h1,
+.payment-page:not(:where(.gym-theme-factory *)) h2,
 .account-page h1,
 .account-page h2,
 .account-page h3 {
@@ -2052,8 +2052,8 @@ header.topbar > *,
 .booking-card,
 .booking-contact-card,
 .reservation-card,
-.payment-card,
-.payment-summary-card,
+.payment-card:not(:where(.gym-theme-factory *)),
+.payment-summary-card:not(:where(.gym-theme-factory *)),
 .auth-card,
 .account-dashboard-card,
 .account-panel,
@@ -2069,7 +2069,7 @@ header.topbar > *,
 .coach-result-footer,
 .booking-card p,
 .reservation-card p,
-.payment-card p,
+.payment-card:not(:where(.gym-theme-factory *)) p,
 .account-dashboard-card p,
 .auth-subtitle,
 .auth-field span,
@@ -2083,7 +2083,7 @@ header.topbar > *,
 .coach-result-card h2,
 .booking-card h2,
 .reservation-card h2,
-.payment-card h2,
+.payment-card:not(:where(.gym-theme-factory *)) h2,
 .account-dashboard-card h2,
 .auth-card h1,
 .auth-card h2 {
@@ -2096,7 +2096,7 @@ header.topbar > *,
 .auth-field input,
 .auth-field select,
 .booking-field input,
-.payment-field input,
+.payment-field:not(:where(.gym-theme-factory *)) input,
 .reservation-field input {
   border-color: rgba(255, 255, 255, 0.13) !important;
   background: #202d42 !important;
@@ -2110,7 +2110,7 @@ header.topbar > *,
 .sport-search-card,
 .coach-directory-search,
 .booking-contact-form,
-.payment-form,
+.payment-form:not(:where(.gym-theme-factory *)),
 .reservation-form {
   background: #151d32 !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
@@ -2139,7 +2139,7 @@ header.topbar > *,
 }
 
 .auth-primary,
-.payment-submit,
+.payment-submit:not(:where(.gym-theme-factory *)),
 .reservation-confirm-button,
 .booking-contact-submit {
   background: #d7f36b !important;
@@ -2231,7 +2231,7 @@ header.topbar > *,
 .field,
 .auth-field,
 .booking-field,
-.payment-field,
+.payment-field:not(:where(.gym-theme-factory *)),
 .reservation-field {
   border: 1px solid #3a4b68 !important;
   border-radius: 16px !important;
@@ -2244,7 +2244,7 @@ header.topbar > *,
 .field-label,
 .auth-field > span,
 .booking-field > span,
-.payment-field > span,
+.payment-field:not(:where(.gym-theme-factory *)) > span,
 .reservation-field > span {
   color: #d7f36b !important;
   font-weight: 800;
@@ -2257,7 +2257,7 @@ header.topbar > *,
 .auth-field input,
 .auth-field select,
 .booking-field input,
-.payment-field input,
+.payment-field:not(:where(.gym-theme-factory *)) input,
 .reservation-field input {
   border: 0 !important;
   background: transparent !important;
@@ -2270,7 +2270,7 @@ header.topbar > *,
 .field:focus-within,
 .auth-field:focus-within,
 .booking-field:focus-within,
-.payment-field:focus-within,
+.payment-field:not(:where(.gym-theme-factory *)):focus-within,
 .reservation-field:focus-within {
   border-color: #d7f36b !important;
   box-shadow: 0 0 0 3px rgba(215, 243, 107, 0.14) !important;
@@ -2345,7 +2345,7 @@ body {
 .sport-page-shell,
 .coach-profile-shell,
 .account-shell,
-.payment-shell,
+.payment-shell:not(:where(.gym-theme-factory *)),
 .recap-shell,
 .reservation-shell {
   color: #f6f8fb;
@@ -2355,7 +2355,7 @@ body {
 .sport-page-shell .site-header,
 .coach-profile-shell .site-header,
 .account-shell .topbar,
-.payment-shell .topbar,
+.payment-shell:not(:where(.gym-theme-factory *)) .topbar,
 .recap-shell .topbar,
 .reservation-shell .topbar {
   background: rgba(11, 16, 32, 0.92);
@@ -2371,8 +2371,8 @@ body {
 .coach-profile-shell h3,
 .account-shell h1,
 .account-shell h2,
-.payment-shell h1,
-.payment-shell h2,
+.payment-shell:not(:where(.gym-theme-factory *)) h1,
+.payment-shell:not(:where(.gym-theme-factory *)) h2,
 .recap-shell h1,
 .recap-shell h2,
 .reservation-shell h1,
@@ -2383,7 +2383,7 @@ body {
 .sport-page-shell p,
 .coach-profile-shell p,
 .account-shell p,
-.payment-shell p,
+.payment-shell:not(:where(.gym-theme-factory *)) p,
 .recap-shell p,
 .reservation-shell p {
   color: #9da9c2;
@@ -2395,8 +2395,8 @@ body {
 .coach-profile-card,
 .coach-booking-card,
 .auth-card,
-.payment-card,
-.payment-summary-card,
+.payment-card:not(:where(.gym-theme-factory *)),
+.payment-summary-card:not(:where(.gym-theme-factory *)),
 .recap-service-card,
 .recap-date-card,
 .recap-auth-card,
@@ -2413,7 +2413,7 @@ body {
 .coach-directory-toolbar select,
 .auth-field input,
 .auth-field select,
-.payment-field input,
+.payment-field:not(:where(.gym-theme-factory *)) input,
 .reservation-selection-panel input {
   border-color: rgba(255, 255, 255, 0.12);
   background: #1d2840;
@@ -2423,7 +2423,7 @@ body {
 .sport-search-card .search-button,
 .coach-book-button,
 .auth-primary,
-.payment-submit,
+.payment-submit:not(:where(.gym-theme-factory *)),
 .reservation-confirm-button,
 .recap-dark-button {
   background: #d7f36b;
@@ -2434,7 +2434,7 @@ body {
 .sport-search-card .search-button:hover,
 .coach-book-button:hover,
 .auth-primary:hover,
-.payment-submit:hover,
+.payment-submit:not(:where(.gym-theme-factory *)):hover,
 .reservation-confirm-button:hover,
 .recap-dark-button:hover {
   background: #ecff9a;
@@ -2444,7 +2444,7 @@ body {
 .coach-result-card:hover,
 .reservation-slot.is-selected,
 .reservation-coach-option.is-active,
-.payment-method.is-active {
+.payment-method:not(:where(.gym-theme-factory *)).is-active {
   border-color: #d7f36b;
   background: #202d42;
 }
@@ -2918,7 +2918,7 @@ body {
   .sport-page-shell,
   .coach-profile-shell,
   .account-shell,
-  .payment-shell,
+  .payment-shell:not(:where(.gym-theme-factory *)),
   .recap-shell,
   .reservation-shell { padding-bottom: 74px; }
   .sport-page-shell .site-header,
@@ -2927,7 +2927,7 @@ body {
 
 /* Conversion and account surfaces */
 .account-shell,
-.payment-shell,
+.payment-shell:not(:where(.gym-theme-factory *)),
 .recap-shell,
 .reservation-shell {
   min-height: 100vh;
@@ -2937,7 +2937,7 @@ body {
 }
 
 .account-shell .topbar,
-.payment-shell .topbar,
+.payment-shell:not(:where(.gym-theme-factory *)) .topbar,
 .recap-shell .topbar,
 .reservation-shell .topbar {
   position: sticky;
@@ -2949,7 +2949,7 @@ body {
 }
 
 .account-shell .brand-name,
-.payment-shell .brand-name,
+.payment-shell:not(:where(.gym-theme-factory *)) .brand-name,
 .recap-shell .brand-name,
 .reservation-shell .brand-name {
   color: #172033;
@@ -2957,7 +2957,7 @@ body {
 }
 
 .account-shell .sport-link,
-.payment-shell .sport-link,
+.payment-shell:not(:where(.gym-theme-factory *)) .sport-link,
 .recap-shell .sport-link,
 .reservation-shell .sport-link {
   color: #617087;
@@ -2966,7 +2966,7 @@ body {
 }
 
 .account-shell .topbar-link,
-.payment-shell .topbar-link,
+.payment-shell:not(:where(.gym-theme-factory *)) .topbar-link,
 .recap-shell .topbar-link,
 .reservation-shell .topbar-link {
   min-height: 42px;
@@ -2977,7 +2977,7 @@ body {
 }
 
 .account-shell .account-button,
-.payment-shell .account-button,
+.payment-shell:not(:where(.gym-theme-factory *)) .account-button,
 .recap-shell .account-button,
 .reservation-shell .account-button {
   min-height: 42px;
@@ -2988,7 +2988,7 @@ body {
 }
 
 .account-page,
-.payment-page,
+.payment-page:not(:where(.gym-theme-factory *)),
 .recap-page,
 .reservation-page {
   width: min(100%, 1180px);
@@ -3032,7 +3032,7 @@ body {
 .auth-role-card.is-selected,
 .recap-dark-button,
 .reservation-confirm-button,
-.payment-submit {
+.payment-submit:not(:where(.gym-theme-factory *)) {
   border-radius: 14px;
   background: #172033;
   box-shadow: none;
@@ -3041,17 +3041,17 @@ body {
 .auth-primary:hover,
 .recap-dark-button:hover,
 .reservation-confirm-button:hover,
-.payment-submit:hover {
+.payment-submit:not(:where(.gym-theme-factory *)):hover {
   background: #e26b47;
 }
 
-.payment-page,
+.payment-page:not(:where(.gym-theme-factory *)),
 .recap-page,
 .reservation-page {
   padding-top: 58px;
 }
 
-.payment-intro h1,
+.payment-intro:not(:where(.gym-theme-factory *)) h1,
 .recap-header h1,
 .reservation-header h1 {
   color: #172033;
@@ -3059,9 +3059,9 @@ body {
   letter-spacing: -0.075em;
 }
 
-.payment-card,
-.payment-summary-card,
-.payment-success-card,
+.payment-card:not(:where(.gym-theme-factory *)),
+.payment-summary-card:not(:where(.gym-theme-factory *)),
+.payment-success-card:not(:where(.gym-theme-factory *)),
 .recap-service-card,
 .recap-date-card,
 .recap-auth-card,
@@ -3073,26 +3073,26 @@ body {
   box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
 }
 
-.payment-method {
+.payment-method:not(:where(.gym-theme-factory *)) {
   border-radius: 14px;
   border-color: rgba(31, 42, 58, 0.1);
   background: #f6f8fb;
 }
 
-.payment-method.is-active {
+.payment-method:not(:where(.gym-theme-factory *)).is-active {
   border-color: #e26b47;
   background: #fff5f1;
   color: #a8472c;
 }
 
-.payment-field input,
+.payment-field:not(:where(.gym-theme-factory *)) input,
 .reservation-selection-panel input {
   border: 1px solid rgba(31, 42, 58, 0.13);
   border-radius: 13px;
   background: #f8fafc;
 }
 
-.payment-success-card {
+.payment-success-card:not(:where(.gym-theme-factory *)) {
   border-color: rgba(73, 183, 123, 0.25);
   background: #f1fbf5;
 }
@@ -3126,14 +3126,14 @@ body {
 
 @media (max-width: 900px) {
   .account-shell .topbar,
-  .payment-shell .topbar,
+  .payment-shell:not(:where(.gym-theme-factory *)) .topbar,
   .recap-shell .topbar,
   .reservation-shell .topbar {
     padding: 12px 16px;
   }
 
   .account-page,
-  .payment-page,
+  .payment-page:not(:where(.gym-theme-factory *)),
   .recap-page,
   .reservation-page {
     padding: 30px 16px 58px;
@@ -3152,7 +3152,7 @@ body {
 .coach-profile-shell,
 .booking-shell,
 .account-shell,
-.payment-shell,
+.payment-shell:not(:where(.gym-theme-factory *)),
 .recap-shell,
 .reservation-shell,
 .club-signup-shell,
@@ -3160,7 +3160,7 @@ body {
 .coach-directory-page,
 .booking-page,
 .account-page,
-.payment-page,
+.payment-page:not(:where(.gym-theme-factory *)),
 .recap-page,
 .reservation-page,
 .club-signup-page {
@@ -3176,8 +3176,8 @@ body {
 .booking-card,
 .booking-contact-card,
 .reservation-card,
-.payment-card,
-.payment-summary-card,
+.payment-card:not(:where(.gym-theme-factory *)),
+.payment-summary-card:not(:where(.gym-theme-factory *)),
 .auth-card,
 .account-dashboard-card:not(.coach-home-summary):not(.coach-home-planning):not(.coach-home-profile-preview):not(.coach-home-next-session):not(.coach-home-rating):not(.coach-home-revenue):not(.coach-home-requests):not([data-coach-profile-editor]):not([data-phone-verification]):not([data-coach-documents]):not([data-message-inbox]),
 .account-panel,
@@ -3193,13 +3193,13 @@ body {
 .field,
 .auth-field,
 .booking-field,
-.payment-field,
+.payment-field:not(:where(.gym-theme-factory *)),
 .reservation-field,
 .sport-search-card input,
 .sport-search-card select,
 .coach-directory-toolbar input,
 .coach-directory-toolbar select,
-.payment-method,
+.payment-method:not(:where(.gym-theme-factory *)),
 .reservation-day,
 .reservation-slot,
 .reservation-coach-option,
@@ -3215,7 +3215,7 @@ body {
 .coach-result-card:hover,
 .reservation-slot.is-selected,
 .reservation-coach-option.is-active,
-.payment-method.is-active {
+.payment-method:not(:where(.gym-theme-factory *)).is-active {
   background: #203252 !important;
 }
 

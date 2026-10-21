@@ -3,47 +3,15 @@ import {useDemoPayment} from "./useDemoPayment";
 import recoveryStyles from "./payment-recovery.module.css";
 import { formatBookingSlot, reservationStart } from "@/lib/domain/booking-time";
 
-import { useEffect, useMemo, useState, type RefObject } from "react";
-import { buildNextPath, nextRoutes } from "@/lib/next-routes";
-import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { useEffect, useState, type RefObject } from "react";
+import { nextRoutes } from "@/lib/next-routes";
+import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 
 type PaiementLegacyPageProps = {
-  legacyStyles: string;
   params: Record<string, string | undefined>;
   provider?: "local" | "stripe";
   athleteEmail?:string;
 };
-
-function PaymentHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>GetYourMentor</a>
-      </div>
-
-      <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>Football</a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>Basketball</a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Fitness</a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>Sports de combat</a>
-      </nav>
-
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>Je suis coach</a>
-        <a className="account-button" href={nextRoutes.account}>
-          <span className="account-button-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span>Mon compte</span>
-        </a>
-      </div>
-    </header>
-  );
-}
 
 function PaymentMain({
   selectedMethod,
@@ -74,19 +42,19 @@ function PaymentMain({
         </header>
 
         {provider === "local" ? <div className="payment-methods" aria-label="Modes illustratifs, tous utilisent la même simulation">
-          <button className={`payment-method${selectedMethod === "card" ? " is-active" : ""}`} type="button" data-method="card" onClick={() => onSelectMethod("card")}>
+          <button aria-pressed={selectedMethod === "card"} className={`payment-method${selectedMethod === "card" ? " is-active" : ""}`} type="button" data-method="card" onClick={() => onSelectMethod("card")}>
             <strong>Carte fictive</strong>
             <span>Visa, Mastercard, CB</span>
           </button>
-          <button className={`payment-method${selectedMethod === "apple-pay" ? " is-active" : ""}`} type="button" data-method="apple-pay" onClick={() => onSelectMethod("apple-pay")}>
+          <button aria-pressed={selectedMethod === "apple-pay"} className={`payment-method${selectedMethod === "apple-pay" ? " is-active" : ""}`} type="button" data-method="apple-pay" onClick={() => onSelectMethod("apple-pay")}>
             <strong>Apple Pay</strong>
             <span>Illustration sans service externe</span>
           </button>
-          <button className={`payment-method${selectedMethod === "google-pay" ? " is-active" : ""}`} type="button" data-method="google-pay" onClick={() => onSelectMethod("google-pay")}>
+          <button aria-pressed={selectedMethod === "google-pay"} className={`payment-method${selectedMethod === "google-pay" ? " is-active" : ""}`} type="button" data-method="google-pay" onClick={() => onSelectMethod("google-pay")}>
             <strong>Google Pay</strong>
             <span>Illustration sans service externe</span>
           </button>
-          <button className={`payment-method${selectedMethod === "onsite" ? " is-active" : ""}`} type="button" data-method="onsite" onClick={() => onSelectMethod("onsite")}>
+          <button aria-pressed={selectedMethod === "onsite"} className={`payment-method${selectedMethod === "onsite" ? " is-active" : ""}`} type="button" data-method="onsite" onClick={() => onSelectMethod("onsite")}>
             <strong>Sur place</strong>
             <span>Illustration de démonstration</span>
           </button>
@@ -229,11 +197,9 @@ function PaymentSide({
   );
 }
 
-import { SiteFooter } from "@/components/SiteFooter";
-function PaymentFooter() { return <SiteFooter />; }
 
 export function PaiementLegacyPage(props:PaiementLegacyPageProps){return <PaymentPage key={`${props.provider}:${props.athleteEmail ?? ""}:${props.params.reservationId ?? ""}`} {...props}/>;}
-function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: PaiementLegacyPageProps) {
+function PaymentPage({ params, provider = "local",athleteEmail }: PaiementLegacyPageProps) {
   const demo=useDemoPayment(provider==="local",params.reservationId || "",athleteEmail);
   const [stripeReservation, setServerReservation] = useState<{ coachName: string; city: string; service: string; duration: string; price: number; appointmentAt?: string; slots: string[] } | null>(null);
   const serverReservation=provider==="local"?demo.reservation:stripeReservation;
@@ -333,9 +299,8 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
 
   return (
     <>
-      <style jsx global>{legacyStyles}</style>
-      <div className="site-shell payment-shell">
-        <PaymentHeader />
+      <DiscoveryFrame page="payment" demo={provider === "local"}>
+      <div className={recoveryStyles.page}>
 
         <main className="payment-page" data-payment-page>
           <PaymentMain selectedMethod={selectedMethod} onSelectMethod={setSelectedMethod} provider={provider} />
@@ -365,8 +330,8 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
           />
         </main>
 
-        <PaymentFooter />
       </div>
+      </DiscoveryFrame>
     </>
   );
 }
